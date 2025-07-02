@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YAMAHA MAXI POWER-UPS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: #0ff;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      border-bottom: 3px solid #0ff;
+    }
+    .introduction {
+      padding: 2rem;
+      background: #121212;
+      color: #0ff;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: auto;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .bike {
+      background: #222;
+      border: 2px solid #0ff;
+      padding: 1rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      transition: transform 0.3s ease;
+    }
+    .bike:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #0ff;
+    }
+    .bike img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .contact {
+      background: #1a1a1a;
+      padding: 2rem;
+    }
+    .contact h2 {
+      text-align: center;
+      color: #0ff;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea, button {
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Orbitron', sans-serif;
+    }
+    button {
+      background: #0ff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    YAMAHA MAXI POWER-UPS
+  </header>
+
+  <section class="introduction">
+    <h2>Exploring the Legacy of Yamaha</h2>
+    <p>The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.</p>
+
+    <h2>Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels</h2>
+    <p>The LEXI, NMAX, Aerox, XMAX, and TMAX are among the high-end scooters in the Yamaha MAXI Family portfolio. These scooters are renowned for their fashionable designs, strong engines, and comfort. In contrast to regular scooters, MAXI scooters have a larger frame, a smoother ride, and features that make them perfect for long-distance and daily commuting. Because it strikes the ideal combination between comfort, power, and efficiency, the Yamaha NMAX 155cc is particularly well-liked in the Philippines.</p>
+
+    <h2>The Vision Behind Yamaha Power Ups: Why It Matters</h2>
+    <p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
+  </section>
+
+  <section class="gallery">
+    <div class="bike">
+      <img src="/mnt/data/lexi%20ssj.png" alt="YAMAHA LEXI x Dragon Ball Z">
+      <p>YAMAHA LEXI x Dragon Ball Z: Super Saiyan Mode</p>
+    </div>
+    <div class="bike">
+      <img src="/mnt/data/nmax%20sukuna.png" alt="YAMAHA NMAX x Jujutsu Kaisen">
+      <p>YAMAHA NMAX x Jujutsu Kaisen: Possessed Sukuna</p>
+    </div>
+    <div class="bike">
+      <img src="/mnt/data/aerox%20kurama.png" alt="YAMAHA AEROX x Naruto Shippuden">
+      <p>YAMAHA AEROX x Naruto Shippuden: Nine-tailed Beast Kurama</p>
+    </div>
+    <div class="bike">
+      <img src="/mnt/data/xmax%20onepiece.png" alt="YAMAHA XMAX x One Piece">
+      <p>YAMAHA XMAX x One Piece: The Thousand Sunny</p>
+    </div>
+    <div class="bike">
+      <img src="/mnt/data/tmax%20rengoku.png" alt="YAMAHA TMAX x Demon Slayer">
+      <p>YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Yamaha Motorbikes Showcase. All rights reserved.
+  </footer>
+</body>
+</html>

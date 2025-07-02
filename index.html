@@ -71,7 +71,8 @@
       text-align: center;
       opacity: 0;
       animation: fadeIn 1s ease forwards;
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      transform: translateY(30px);
     }
     .bike:hover {
       transform: scale(1.05);
@@ -126,8 +127,8 @@
     <img src="yamaha-logo.png" alt="Yamaha Logo">
     <ul>
       <li><a href="#">Home</a></li>
+      <li><a href="#motors">Motors</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#gallery">Motors</a></li>
       <li><a href="#contact">Contacts</a></li>
     </ul>
   </nav>
@@ -147,7 +148,7 @@
     <p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
   </section>
 
-  <section class="gallery" id="gallery">
+  <section class="gallery" id="motors">
     <div class="bike">
       <img src="lexi ssj.png" alt="YAMAHA LEXI x Dragon Ball Z">
       <p>YAMAHA LEXI x Dragon Ball Z: Super Saiyan Mode</p>
@@ -183,5 +184,41 @@
   <footer>
     &copy; 2025 Yamaha Motorbikes Showcase. All rights reserved.
   </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Contact form alert
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+
+    // Fade-in on scroll for bikes
+    const bikes = document.querySelectorAll('.bike');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    bikes.forEach(bike => {
+      observer.observe(bike);
+    });
+  </script>
 </body>
 </html>

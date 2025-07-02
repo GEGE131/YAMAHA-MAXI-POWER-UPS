@@ -58,6 +58,13 @@
       max-width: 900px;
       margin: auto;
     }
+    .introduction h3 {
+      color: #fff;
+      background: #0ff;
+      padding: 0.5rem;
+      border-radius: 6px;
+      margin-top: 2rem;
+    }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -73,6 +80,7 @@
       animation: fadeIn 1s ease forwards;
       transition: transform 0.5s ease, opacity 0.5s ease;
       transform: translateY(30px);
+      cursor: pointer;
     }
     .bike:hover {
       transform: scale(1.05);
@@ -82,6 +90,44 @@
       max-width: 100%;
       height: auto;
       border-radius: 8px;
+    }
+    .spec-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #111;
+      padding: 2rem;
+      border: 2px solid #0ff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #0ff;
+      z-index: 1000;
+      display: none;
+      color: #0ff;
+      max-width: 400px;
+    }
+    .spec-modal h3 {
+      margin-top: 0;
+    }
+    .spec-modal button {
+      margin-top: 1rem;
+      background: #0ff;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      display: none;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -123,12 +169,18 @@
   </style>
 </head>
 <body>
+  <div class="overlay" id="overlay"></div>
+  <div class="spec-modal" id="specModal">
+    <h3 id="specTitle"></h3>
+    <p id="specDetails"></p>
+    <button onclick="closeModal()">Close</button>
+  </div>
   <nav>
     <img src="yamaha-logo.png" alt="Yamaha Logo">
     <ul>
       <li><a href="#">Home</a></li>
-      <li><a href="#motors">Motors</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#motors">Motors</a></li>
       <li><a href="#contact">Contacts</a></li>
     </ul>
   </nav>
@@ -138,87 +190,63 @@
   </header>
 
   <section class="introduction" id="about">
-    <h2>Exploring the Legacy of Yamaha</h2>
+    <h2>Welcome to Yamaha Maxi Power-Ups</h2>
+    <h3>Exploring the Legacy of Yamaha</h3>
     <p>The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.</p>
-
-    <h2>Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels</h2>
+    <h3>Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels</h3>
     <p>The LEXI, NMAX, Aerox, XMAX, and TMAX are among the high-end scooters in the Yamaha MAXI Family portfolio. These scooters are renowned for their fashionable designs, strong engines, and comfort. In contrast to regular scooters, MAXI scooters have a larger frame, a smoother ride, and features that make them perfect for long-distance and daily commuting. Because it strikes the ideal combination between comfort, power, and efficiency, the Yamaha NMAX 155cc is particularly well-liked in the Philippines.</p>
-
-    <h2>The Vision Behind Yamaha Power Ups: Why It Matters</h2>
+    <h3>The Vision Behind Yamaha Power Ups: Why It Matters</h3>
     <p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
   </section>
 
   <section class="gallery" id="motors">
-    <div class="bike">
-      <img src="lexi ssj.png" alt="YAMAHA LEXI x Dragon Ball Z">
-      <p>YAMAHA LEXI x Dragon Ball Z: Super Saiyan Mode</p>
+    <div class="bike" onclick="showSpecs('TMAX x Rengoku', 'Price: ₱649,000')">
+      <img src="tmax rengoku.png" alt="TMAX x Rengoku">
+      <h4>TMAX x Rengoku</h4>
     </div>
-    <div class="bike">
-      <img src="nmax sukuna.png" alt="YAMAHA NMAX x Jujutsu Kaisen">
-      <p>YAMAHA NMAX x Jujutsu Kaisen: Possessed Sukuna</p>
+    <div class="bike" onclick="showSpecs('XMAX x One Piece', 'Price: ₱299,000')">
+      <img src="xmax onepiece.png" alt="XMAX x One Piece">
+      <h4>XMAX x One Piece</h4>
     </div>
-    <div class="bike">
-      <img src="aerox kurama.png" alt="YAMAHA AEROX x Naruto Shippuden">
-      <p>YAMAHA AEROX x Naruto Shippuden: Nine-tailed Beast Kurama</p>
+    <div class="bike" onclick="showSpecs('NMAX x Sukuna', 'Price: ₱164,000')">
+      <img src="nmax sukuna.png" alt="NMAX x Sukuna">
+      <h4>NMAX x Sukuna</h4>
     </div>
-    <div class="bike">
-      <img src="xmax onepiece.png" alt="YAMAHA XMAX x One Piece">
-      <p>YAMAHA XMAX x One Piece: The Thousand Sunny</p>
+    <div class="bike" onclick="showSpecs('AEROX x Kurama', 'Price: ₱124,000')">
+      <img src="aerox kurama.png" alt="AEROX x Kurama">
+      <h4>AEROX x Kurama</h4>
     </div>
-    <div class="bike">
-      <img src="tmax rengoku.png" alt="YAMAHA TMAX x Demon Slayer">
-      <p>YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku</p>
+    <div class="bike" onclick="showSpecs('LEXI x Super Saiyan', 'Price: ₱91,000')">
+      <img src="lexi ssj.png" alt="LEXI x Super Saiyan">
+      <h4>LEXI x Super Saiyan</h4>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
     <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 Yamaha Motorbikes Showcase. All rights reserved.
+    &copy; 2025 Yamaha Motor Co., Ltd.
   </footer>
 
   <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Contact form alert
-    document.querySelector('form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Thank you for your message! We will get back to you soon.');
-      this.reset();
-    });
-
-    // Fade-in on scroll for bikes
-    const bikes = document.querySelectorAll('.bike');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    bikes.forEach(bike => {
-      observer.observe(bike);
-    });
+    function showSpecs(title, details) {
+      document.getElementById('specTitle').innerText = title;
+      document.getElementById('specDetails').innerText = details;
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('specModal').style.display = 'block';
+    }
+    function closeModal() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('specModal').style.display = 'none';
+    }
   </script>
 </body>
 </html>

@@ -110,11 +110,34 @@
       box-shadow: 0 0 20px var(--accent-color);
       z-index: 1000;
       display: none;
-      color: var(--accent-color);
-      max-width: 400px;
+      color: white;
+      width: 80vw;
+      height: 80vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
-    .spec-modal h3 {
+    .spec-modal::-webkit-scrollbar {
+      display: none;
+    }
+    .spec-modal-content {
+      display: flex;
+      gap: 2rem;
+    }
+    .spec-modal img {
+      width: 40%;
+      border-radius: 10px;
+    }
+    .spec-text {
+      flex: 1;
+      overflow: hidden;
+    }
+    .spec-text h3 {
+      color: var(--accent-color);
       margin-top: 0;
+    }
+    .spec-text p, .spec-text ul {
+      line-height: 1.6;
     }
     .spec-modal button {
       margin-top: 1rem;
@@ -182,11 +205,48 @@
   </style>
 </head>
 <body>
- <div class="overlay" id="overlay"></div>
+  <div class="overlay" id="overlay"></div>
   <div class="spec-modal" id="specModal">
-    <h3 id="specTitle"></h3>
-    <p id="specDetails"></p>
-    <button onclick="closeModal()">Close</button>
+    <div class="spec-modal-content">
+      <img src="tmax rengoku.png" alt="Bike Image">
+      <div class="spec-text">
+        <h3>YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku (₱ 829,000.00)</h3>
+        <p><strong>SPECIFICATIONS</strong></p>
+        <ul>
+          <li>Mileage (City): 46.5–50 kmpl</li>
+          <li>Displacement: 155 cc</li>
+          <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve VVA</li>
+          <li>No. of Cylinders: 1</li>
+          <li>Max Power: 15.5 PS @ 8000 rpm</li>
+          <li>Max Torque: 14 Nm @ 6500 rpm</li>
+          <li>Front Brake: 230 mm Hydraulic Disc</li>
+          <li>Rear Brake: 130 mm Drum / Optional Disc Variant</li>
+          <li>Fuel Capacity: 5.5 L</li>
+          <li>Fuel Type: Hydro fuel</li>
+        </ul>
+        <p><strong>TECH & FEATURES</strong></p>
+        <ul>
+          <li>ABS: Single Channel ABS (Front)</li>
+          <li>Seat Opening Switch: Yes (Integrated Keyless Start + Remote Unlock)</li>
+          <li>External Fuel Filling: Yes (Front fuel port – no need to lift seat)</li>
+          <li>Mobile Connectivity: Yamaha Y-Connect App (Bluetooth-enabled)</li>
+          <li>Shutter Lock: Yes (Key Shutter with Magnetic Lock)</li>
+          <li>Clock: Yes (Digital)</li>
+          <li>Speedometer: Fully Digital LCD</li>
+          <li>Odometer: Digital</li>
+          <li>Tripmeter: Digital (Trip A / Trip B / Fuel Economy Mode)</li>
+          <li>Tachometer: Digital Bar-Type</li>
+        </ul>
+        <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+        <ul>
+          <li>Flame Tip LED Design</li>
+          <li>Rear LEDs in red-orange gradient for heat-trail effect</li>
+          <li>Enhanced Sound Profile: Street Legal, deep sporty tone</li>
+          <li>Smart Ride Dashboard via Yamaha Y-Connect (Street/Flame/Sport themes)</li>
+        </ul>
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
   </div>
   <nav class="fade-in">
     <img src="yamaha-logo.png" alt="Yamaha Logo">
@@ -213,7 +273,7 @@
   </section>
 
   <section class="gallery fade-in" id="motors">
-    <div class="bike fade-in" onclick="showSpecs('TMAX x Rengoku', 'Price: ₱649,000')">
+    <div class="bike fade-in" onclick="showSpecs()">
       <img src="tmax rengoku.png" alt="TMAX x Rengoku">
       <h4>TMAX x Rengoku</h4>
     </div>
@@ -236,13 +296,19 @@
   </section>
 
   <section class="contact fade-in" id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message"></textarea>
+ <h2>Contact Us</h2>
+    <form aria-label="Contact Form">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+
       <button type="submit">Send</button>
-    </form>
+    </form>  
   </section>
 
   <footer class="fade-in">
@@ -250,38 +316,36 @@
   </footer>
 
   <script>
-  function showSpecs(title, details) {
-    document.getElementById('specTitle').innerText = title;
-    document.getElementById('specDetails').innerText = details;
-    document.getElementById('overlay').style.display = 'block';
-    document.getElementById('specModal').style.display = 'block';
-  }
+    function showSpecs() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('specModal').style.display = 'block';
+    }
 
-  function closeModal() {
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById('specModal').style.display = 'none';
-  }
+    function closeModal() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('specModal').style.display = 'none';
+    }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const faders = document.querySelectorAll('.fade-in');
+    document.addEventListener("DOMContentLoaded", function () {
+      const faders = document.querySelectorAll('.fade-in');
 
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+      const appearOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+      const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
       });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
     });
-  });
-</script>
+  </script>
 </body>
 </html>

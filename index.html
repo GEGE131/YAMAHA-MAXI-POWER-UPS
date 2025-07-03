@@ -1,351 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YAMAHA MAXI POWER-UPS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent-color: #9b111e;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YAMAHA MAXI POWER-UPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-color: #9b111e;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #000000, #1a1a1a);
-      color: white;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #000;
-      padding: 1rem 2rem;
-      border-bottom: 3px solid var(--accent-color);
-      z-index: 10000;
-      transition: top 0.3s;
-    }
-    nav img {
-      height: 40px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: var(--accent-color);
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: #fff;
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-      background: #111;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      border-bottom: 3px solid var(--accent-color);
-      margin-top: 70px;
-    }
-    .introduction {
-      padding: 2rem;
-      background: #121212;
-      color: white;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: auto;
-    }
-    .introduction h3 {
-      color: black;
-      background: var(--accent-color);
-      padding: 0.5rem;
-      border-radius: 6px;
-      margin-top: 2rem;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-    }
-    .bike {
-      background: #222;
-      border: 2px solid var(--accent-color);
-      padding: 1rem;
-      text-align: center;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      transform: translateY(30px);
-      cursor: pointer;
-    }
-    .bike:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px var(--accent-color);
-    }
-    .bike img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .spec-modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #111;
-      padding: 2rem;
-      border: 2px solid var(--accent-color);
-      border-radius: 10px;
-      box-shadow: 0 0 20px var(--accent-color);
-      z-index: 1000;
-      display: none;
-      color: white;
-      width: 80vw;
-      height: 80vh;
-      overflow-y: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .spec-modal::-webkit-scrollbar {
-      display: none;
-    }
-    .spec-modal-content {
-      display: flex;
-      gap: 2rem;
-    }
-    .spec-modal img {
-      width: 40%;
-      border-radius: 10px;
-    }
-    .spec-text {
-      flex: 1;
-      overflow: hidden;
-    }
-    .spec-text h3 {
-      color: var(--accent-color);
-      margin-top: 0;
-    }
-    .spec-text p, .spec-text ul {
-      line-height: 1.6;
-    }
-    .spec-modal button {
-      margin-top: 1rem;
-      background: var(--accent-color);
-      color: #000;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 999;
-      display: none;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .contact {
-      background: #1a1a1a;
-      padding: 2rem;
-      color: var(--accent-color);
-    }
-    form {
-      max-width: 600px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    input, textarea, button {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-family: 'Orbitron', sans-serif;
-    }
-    button {
-      background: var(--accent-color);
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #111;
-      color: #555;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
-  </style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: white;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            padding: 1rem 2rem;
+            border-bottom: 3px solid var(--accent-color);
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+            nav img {
+                height: 40px;
+            }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 1.5rem;
+                margin: 0;
+                padding: 0;
+            }
+
+                nav ul li a {
+                    text-decoration: none;
+                    color: var(--accent-color);
+                    font-weight: bold;
+                    transition: color 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        color: #fff;
+                    }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+            background: #111;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            border-bottom: 3px solid var(--accent-color);
+            margin-top: 70px;
+        }
+
+        .introduction {
+            padding: 2rem;
+            background: #121212;
+            color: white;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: auto;
+        }
+
+            .introduction h3 {
+                color: black;
+                background: var(--accent-color);
+                padding: 0.5rem;
+                border-radius: 6px;
+                margin-top: 2rem;
+            }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .bike {
+            background: #222;
+            border: 2px solid var(--accent-color);
+            padding: 1rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform: translateY(30px);
+            cursor: pointer;
+        }
+
+            .bike:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px var(--accent-color);
+            }
+
+            .bike img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+
+        .spec-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #111;
+            padding: 2rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--accent-color);
+            z-index: 1000;
+            display: none;
+            color: white;
+            width: 80vw;
+            height: 80vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+            .spec-modal::-webkit-scrollbar {
+                display: none;
+            }
+
+        .spec-modal-content {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .spec-modal img {
+            width: 40%;
+            border-radius: 10px;
+        }
+
+        .spec-text {
+            flex: 1;
+            overflow: hidden;
+        }
+
+            .spec-text h3 {
+                color: var(--accent-color);
+                margin-top: 0;
+            }
+
+            .spec-text p, .spec-text ul {
+                line-height: 1.6;
+            }
+
+        .spec-modal button {
+            margin-top: 1rem;
+            background: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact {
+            background: #1a1a1a;
+            padding: 2rem;
+            color: var(--accent-color);
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input, textarea, button {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        button {
+            background: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #111;
+            color: #555;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: none;
+            }
+    </style>
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>
-  <div class="spec-modal" id="specModal">
-    <div class="spec-modal-content">
-      <img src="tmax rengoku.png" alt="Bike Image">
-      <div class="spec-text">
-        <h3>YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku (₱ 829,000.00)</h3>
-        <p><strong>SPECIFICATIONS</strong></p>
+
+    <!-- ================== YAMAHA XMAX x Demon Slayer ================== -->
+    <div class="overlay" id="overlay"></div>
+    <div class="spec-modal" id="specModal">
+        <div class="spec-modal-content">
+            <img src="tmax rengoku.png" alt="Bike Image">
+            <div class="spec-text">
+                <h3>YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku (₱ 829,000.00)</h3>
+                <p><strong>SPECIFICATIONS</strong></p>
+                <ul>
+                    <li>Mileage (City): 46.5–50 kmpl</li>
+                    <li>Displacement: 155 cc</li>
+                    <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve VVA</li>
+                    <li>No. of Cylinders: 1</li>
+                    <li>Max Power: 15.5 PS @ 8000 rpm</li>
+                    <li>Max Torque: 14 Nm @ 6500 rpm</li>
+                    <li>Front Brake: 230 mm Hydraulic Disc</li>
+                    <li>Rear Brake: 130 mm Drum / Optional Disc Variant</li>
+                    <li>Fuel Capacity: 5.5 L</li>
+                    <li>Fuel Type: Hydro fuel</li>
+                </ul>
+                <p><strong>TECH & FEATURES</strong></p>
+                <ul>
+                    <li>ABS: Single Channel ABS (Front)</li>
+                    <li>Seat Opening Switch: Yes (Integrated Keyless Start + Remote Unlock)</li>
+                    <li>External Fuel Filling: Yes (Front fuel port – no need to lift seat)</li>
+                    <li>Mobile Connectivity: Yamaha Y-Connect App (Bluetooth-enabled)</li>
+                    <li>Shutter Lock: Yes (Key Shutter with Magnetic Lock)</li>
+                    <li>Clock: Yes (Digital)</li>
+                    <li>Speedometer: Fully Digital LCD</li>
+                    <li>Odometer: Digital</li>
+                    <li>Tripmeter: Digital (Trip A / Trip B / Fuel Economy Mode)</li>
+                    <li>Tachometer: Digital Bar-Type</li>
+                </ul>
+                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+                <ul>
+                    <li>Flame Tip LED Design</li>
+                    <li>Rear LEDs in red-orange gradient for heat-trail effect</li>
+                    <li>Enhanced Sound Profile: Street Legal, deep sporty tone</li>
+                    <li>Smart Ride Dashboard via Yamaha Y-Connect (Street/Flame/Sport themes)</li>
+                </ul>
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== YAMAHA XMAX x One Piece ================== -->
+    <div class="overlay" id="overlay"></div>
+    <div class="spec-modal" id="xmax-popup">
+        <div class="spec-modal-content">
+            <img src="xmax_onepiece.png" alt="XMAX One Piece">
+            <div class="spec-text">
+                <h3>YAMAHA XMAX x One Piece: The Thousand Sunny (₱ 361,000.00)</h3>
+                <p><strong>SPECIFICATIONS</strong></p>
+                <ul>
+                    <li>Mileage (City): 45–48 kmpl</li>
+                    <li>Displacement: 155 cc</li>
+                    <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
+                    <li>No. of Cylinders: 1</li>
+                    <li>Max Power: 15.4 PS @ 8000 rpm</li>
+                    <li>Max Torque: 13.9 Nm @ 6500 rpm</li>
+                    <li>Front Brake: 230 mm Disc (Hydraulic, ABS)</li>
+                    <li>Rear Brake: 130 mm Drum / Optional rear disc upgrade</li>
+                    <li>Fuel Capacity: 5.5 L</li>
+                    <li>Fuel Type: Hydro fuel</li>
+                </ul>
+                <p><strong>TECH & FEATURES</strong></p>
+                <ul>
+                    <li>ABS: Single-Channel ABS (Front)</li>
+                    <li>Seat Opening Switch: Yes (Remote access under seat)</li>
+                    <li>External Fuel Filling: Yes (Smart tank access near handlebar)</li>
+                    <li>Mobile Connectivity: Yamaha Y-Connect App – monitor fuel, call alerts, maintenance</li>
+                    <li>Shutter Lock: Yes (Magnetic key shutter lock)</li>
+                    <li>Clock: Digital</li>
+                    <li>Speedometer: Fully Digital LCD</li>
+                    <li>Odometer: Digital</li>
+                    <li>Tripmeter: Trip A / Trip B / Real-time Fuel Monitoring</li>
+                    <li>Tachometer: Bar-style digital tachometer</li>
+                </ul>
+                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+                <ul>
+                    <li>Anime-Inspired Full Body Wrap</li>
+                    <li>Dual-Texture Adventure Seat</li>
+                    <li>Enhanced Street Sound Muffler</li>
+                    <li>Anti-theft alarm system (motion sensor + remote lock)</li>
+                    <li>Smart key compatibility (on selected trims)</li>
+                </ul>
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== YAMAHA NMAX x Jujutsu Kaisen ================== -->
+    <div class="overlay" id="overlay"></div>
+    <div class="spec-modal" id="nmax-popup">
+        <div class="spec-modal-content">
+            <img src="nmax_jujutsu.png" alt="NMAX Jujutsu Kaisen">
+            <div class="spec-text">
+                <h3>YAMAHA NMAX x Jujutsu Kaisen: Possessed Sukuna (₱ 205,900.00)</h3>
+                <p><strong>SPECIFICATIONS</strong></p>
+                <ul>
+                    <li>Engine Displacement: 155 cc</li>
+                    <li>Engine Type: 4-stroke, Liquid-Cooled, SOHC, 4-Valve with VVA</li>
+                    <li>Max Power: 15.4 PS @ 8000 rpm</li>
+                    <li>Max Torque: 13.9 Nm @ 6500 rpm</li>
+                    <li>Mileage (City): 45–48 km/l</li>
+                    <li>Fuel Type: Hydro Fuel Compatible</li>
+                    <li>Fuel Tank: 5.5 L</li>
+                    <li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
+                    <li>Rear Brake: 130 mm Drum (optional rear disc)</li>
+                    <li>Tires: Tubeless “Cursed Grip” treads for urban dominance</li>
+                </ul>
+                <p><strong>TECH & FEATURES</strong></p>
+                <ul>
+                    <li>ABS: Front Single-Channel ABS</li>
+                    <li>Lighting: Full LED package (Quad-eye front, fang DRL, rear tail LED)</li>
+                    <li>Smart Seat Access: Remote under-seat release</li>
+                    <li>Fuel Cap: External front-located</li>
+                    <li>Security: Magnetic shutter lock with cursed-seal cap design</li>
+                    <li>App Connectivity: Yamaha Y-Connect</li>
+                    <li>Digital Display Cluster: Full LCD with cursed-red glow theme</li>
+                    <li>Trip A/B, Real-time Consumption Monitor</li>
+                </ul>
+                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+                <ul>
+                    <li>Cursed King Full-Body Wrap</li>
+                    <li>Cursed Grin Headlight Setup</li>
+                    <li>Throne of the Cursed Seat</li>
+                </ul>
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== YAMAHA AEROX x Naruto Shippuden ================== -->
+    <div class="overlay" id="overlay"></div>
+    <div class="spec-modal" id="aerox-popup">
+        <div class="spec-modal-content">
+            <img src="aerox_naruto.png" alt="AEROX Naruto">
+            <div class="spec-text">
+                <h3>YAMAHA AEROX x Naruto Shippuden: Nine-tailed Beast Kurama (₱ 195,000.00)</h3>
+                <p><strong>TECH & FEATURES</strong></p>
+                <ul>
+                    <li>ABS: Front Single-Channel ABS</li>
+                    <li>LED Lighting: Red projector “chakra eyes” with snout-mounted fog light</li>
+                    <li>Turn Signals: Animated LED pulse (fox-ear mirrors)</li>
+                    <li>Seat Opening Switch: Yes</li>
+                    <li>Fuel Cap Access: External front smart cap</li>
+                    <li>Smart App: Yamaha Y-Connect</li>
+                    <li>Security: Magnetic shutter key lock</li>
+                    <li>Digital Cluster: Clock, Speedometer, Odometer, Trip A/B, Fuel Display</li>
+                </ul>
+                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+                <ul>
+                    <li>Kurama-Inspired Full Body Shell</li>
+                    <li>Functional Fox Ear Mirrors</li>
+                    <li>Black Ninja Comfort Seat</li>
+                </ul>
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== YAMAHA LEXI x Dragon Ball Z ================== -->
+    <div class="overlay" id="overlay"></div>
+    <div class="spec-modal" id="lexi-popup">
+        <div class="spec-modal-content">
+            <img src="lexi_dbz.png" alt="LEXI Dragon Ball Z">
+            <div class="spec-text">
+                <h3>YAMAHA LEXI x Dragon Ball Z: Super Saiyan Mode (₱ 130,400.00)</h3>
+                <p><strong>SPECIFICATIONS</strong></p>
+                <ul>
+                    <li>Displacement: 155 cc</li>
+                    <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
+                    <li>No. of Cylinders: 1</li>
+                    <li>Max Power: 15.4 PS @ 8000 rpm</li>
+                    <li>Max Torque: 13.9 Nm @ 6500 rpm</li>
+                    <li>Mileage (City): 45–48 km/l</li>
+                    <li>Fuel Type: Hydro Fuel Compatible</li>
+                    <li>Fuel Tank Capacity: 5.5 L</li>
+                    <li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
+                    <li>Rear Brake: 130 mm Drum / Optional Disc Upgrade</li>
+                    <li>Tires: Tubeless, Sport Tread</li>
+                </ul>
+                <p><strong>TECH & FEATURES</strong></p>
+                <ul>
+                    <li>ABS: Front Single-Channel ABS</li>
+                    <li>Headlights: LED Projector with bright blue tint</li>
+                    <li>Seat Opening Switch: Yes</li>
+                    <li>Fuel Access: External front fuel cap</li>
+                    <li>Mobile App: Yamaha Y-Connect</li>
+                    <li>Anti-Theft: Magnetic shutter lock</li>
+                    <li>Dashboard: Fully Digital LCD Cluster (Clock, Speedo, Odo, Trip A/B, Fuel, Tachometer)</li>
+                </ul>
+                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+                <ul>
+                    <li>Super Saiyan-Themed Custom Body Kit</li>
+                    <li>Custom Sport Saddle</li>
+                    <li>Performance-Grade Exhaust</li>
+                </ul>
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="fade-in">
+        <img src="yamaha-logo.png" alt="Yamaha Logo">
         <ul>
-          <li>Mileage (City): 46.5–50 kmpl</li>
-          <li>Displacement: 155 cc</li>
-          <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve VVA</li>
-          <li>No. of Cylinders: 1</li>
-          <li>Max Power: 15.5 PS @ 8000 rpm</li>
-          <li>Max Torque: 14 Nm @ 6500 rpm</li>
-          <li>Front Brake: 230 mm Hydraulic Disc</li>
-          <li>Rear Brake: 130 mm Drum / Optional Disc Variant</li>
-          <li>Fuel Capacity: 5.5 L</li>
-          <li>Fuel Type: Hydro fuel</li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#motors">Motors</a></li>
+            <li><a href="#contact">Contacts</a></li>
         </ul>
-        <p><strong>TECH & FEATURES</strong></p>
-        <ul>
-          <li>ABS: Single Channel ABS (Front)</li>
-          <li>Seat Opening Switch: Yes (Integrated Keyless Start + Remote Unlock)</li>
-          <li>External Fuel Filling: Yes (Front fuel port – no need to lift seat)</li>
-          <li>Mobile Connectivity: Yamaha Y-Connect App (Bluetooth-enabled)</li>
-          <li>Shutter Lock: Yes (Key Shutter with Magnetic Lock)</li>
-          <li>Clock: Yes (Digital)</li>
-          <li>Speedometer: Fully Digital LCD</li>
-          <li>Odometer: Digital</li>
-          <li>Tripmeter: Digital (Trip A / Trip B / Fuel Economy Mode)</li>
-          <li>Tachometer: Digital Bar-Type</li>
-        </ul>
-        <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
-        <ul>
-          <li>Flame Tip LED Design</li>
-          <li>Rear LEDs in red-orange gradient for heat-trail effect</li>
-          <li>Enhanced Sound Profile: Street Legal, deep sporty tone</li>
-          <li>Smart Ride Dashboard via Yamaha Y-Connect (Street/Flame/Sport themes)</li>
-        </ul>
-        <button onclick="closeModal()">Close</button>
-      </div>
-    </div>
-  </div>
-  <nav class="fade-in">
-    <img src="yamaha-logo.png" alt="Yamaha Logo">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#motors">Motors</a></li>
-      <li><a href="#contact">Contacts</a></li>
-    </ul>
-  </nav>
+    </nav>
 
-  <header class="fade-in">
-    YAMAHA MAXI POWER-UPS
-  </header>
+    <header class="fade-in">
+        YAMAHA MAXI POWER-UPS
+    </header>
 
-  <section class="introduction fade-in" id="about">
-    <h2>Welcome to Yamaha Maxi Power-Ups</h2>
-    <h3>Exploring the Legacy of Yamaha</h3>
-    <p>The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.</p>
-    <h3>Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels</h3>
-    <p>The LEXI, NMAX, Aerox, XMAX, and TMAX are among the high-end scooters in the Yamaha MAXI Family portfolio. These scooters are renowned for their fashionable designs, strong engines, and comfort. In contrast to regular scooters, MAXI scooters have a larger frame, a smoother ride, and features that make them perfect for long-distance and daily commuting. Because it strikes the ideal combination between comfort, power, and efficiency, the Yamaha NMAX 155cc is particularly well-liked in the Philippines.</p>
-    <h3>The Vision Behind Yamaha Power Ups: Why It Matters</h3>
-    <p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
-  </section>
+    <section class="introduction fade-in" id="about">
+        <h2>Welcome to Yamaha Maxi Power-Ups</h2>
+        <h3>Exploring the Legacy of Yamaha</h3>
+        <p>The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.</p>
+        <h3>Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels</h3>
+        <p>The LEXI, NMAX, Aerox, XMAX, and TMAX are among the high-end scooters in the Yamaha MAXI Family portfolio. These scooters are renowned for their fashionable designs, strong engines, and comfort. In contrast to regular scooters, MAXI scooters have a larger frame, a smoother ride, and features that make them perfect for long-distance and daily commuting. Because it strikes the ideal combination between comfort, power, and efficiency, the Yamaha NMAX 155cc is particularly well-liked in the Philippines.</p>
+        <h3>The Vision Behind Yamaha Power Ups: Why It Matters</h3>
+        <p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
+    </section>
 
-  <section class="gallery fade-in" id="motors">
-    <div class="bike fade-in" onclick="showSpecs()">
-      <img src="tmax rengoku.png" alt="TMAX x Rengoku">
-      <h4>TMAX x Rengoku</h4>
-    </div>
-    <div class="bike fade-in" onclick="showSpecs('XMAX x One Piece', 'Price: ₱299,000')">
-      <img src="xmax onepiece.png" alt="XMAX x One Piece">
-      <h4>XMAX x One Piece</h4>
-    </div>
-    <div class="bike fade-in" onclick="showSpecs('NMAX x Sukuna', 'Price: ₱164,000')">
-      <img src="nmax sukuna.png" alt="NMAX x Sukuna">
-      <h4>NMAX x Sukuna</h4>
-    </div>
-    <div class="bike fade-in" onclick="showSpecs('AEROX x Kurama', 'Price: ₱124,000')">
-      <img src="aerox kurama.png" alt="AEROX x Kurama">
-      <h4>AEROX x Kurama</h4>
-    </div>
-    <div class="bike fade-in" onclick="showSpecs('LEXI x Super Saiyan', 'Price: ₱91,000')">
-      <img src="lexi ssj.png" alt="LEXI x Super Saiyan">
-      <h4>LEXI x Super Saiyan</h4>
-    </div>
-  </section>
+    <section class="gallery fade-in" id="motors">
+        <div class="bike fade-in" onclick="showSpecs('specModal')">
+            <img src="tmax rengoku.png" alt="TMAX x Rengoku">
+            <h4>TMAX x Rengoku</h4>
+        </div>
+        <div class="bike fade-in" onclick="showSpecs('xmax-popup')">
+            <img src="xmax onepiece.png" alt="XMAX x One Piece">
+            <h4>XMAX x One Piece</h4>
+        </div>
+        <div class="bike fade-in" onclick="showSpecs('nmax-popup')">
+            <img src="nmax sukuna.png" alt="NMAX x Sukuna">
+            <h4>NMAX x Sukuna</h4>
+        </div>
+        <div class="bike fade-in" onclick="showSpecs('aerox-popup')">
+            <img src="aerox kurama.png" alt="AEROX x Kurama">
+            <h4>AEROX x Kurama</h4>
+        </div>
+        <div class="bike fade-in" onclick="showSpecs('lexi-popup')">
+            <img src="lexi ssj.png" alt="LEXI x Super Saiyan">
+            <h4>LEXI x Super Saiyan</h4>
+        </div>
+    </section>
 
-  <section class="contact fade-in" id="contact">
- <h2>Contact Us</h2>
-    <form aria-label="Contact Form">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <section class="contact fade-in" id="contact">
+        <h2>Contact Us</h2>
+        <form aria-label="Contact Form">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
 
-      <button type="submit">Send</button>
-    </form>  
-  </section>
+            <button type="submit">Send</button>
+        </form>
+    </section>
 
-  <footer class="fade-in">
-    &copy; 2025 Yamaha Motor Co., Ltd.
-  </footer>
+    <footer class="fade-in">
+        &copy; 2025 Yamaha Motor Co., Ltd.
+    </footer>
 
-  <script>
-    function showSpecs() {
-      document.getElementById('overlay').style.display = 'block';
-      document.getElementById('specModal').style.display = 'block';
-    }
+    <script>
+        function showSpecs(modalId) {
+            document.getElementById('overlay').style.display = 'block';
+            document.querySelectorAll('.spec-modal').forEach(modal => modal.style.display = 'none');
+            document.getElementById(modalId).style.display = 'block';
+        }
 
-    function closeModal() {
-      document.getElementById('overlay').style.display = 'none';
-      document.getElementById('specModal').style.display = 'none';
-    }
+        function closeModal() {
+            document.getElementById('overlay').style.display = 'none';
+            document.querySelectorAll('.spec-modal').forEach(modal => modal.style.display = 'none');
+        }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const faders = document.querySelectorAll('.fade-in');
+        document.addEventListener("DOMContentLoaded", function () {
+            const faders = document.querySelectorAll('.fade-in');
 
-      const appearOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-      const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+            const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
         });
-      }, appearOptions);
-
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>

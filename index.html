@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent-color: #9b111e; /* Ruby Red */
+      --accent-color: #9b111e;
     }
 
     body {
@@ -188,7 +188,7 @@
     <p id="specDetails"></p>
     <button onclick="closeModal()">Close</button>
   </div>
-  <nav>
+  <nav class="fade-in">
     <img src="yamaha-logo.png" alt="Yamaha Logo">
     <ul>
       <li><a href="#">Home</a></li>
@@ -198,11 +198,11 @@
     </ul>
   </nav>
 
-  <header>
+  <header class="fade-in">
     YAMAHA MAXI POWER-UPS
   </header>
 
-  <section class="introduction" id="about">
+  <section class="introduction fade-in" id="about">
     <h2>Welcome to Yamaha Maxi Power-Ups</h2>
     <h3>Exploring the Legacy of Yamaha</h3>
     <p>The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.</p>
@@ -212,30 +212,30 @@
     <p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
   </section>
 
-  <section class="gallery" id="motors">
-    <div class="bike" onclick="showSpecs('TMAX x Rengoku', 'Price: ₱649,000')">
+  <section class="gallery fade-in" id="motors">
+    <div class="bike fade-in" onclick="showSpecs('TMAX x Rengoku', 'Price: ₱649,000')">
       <img src="tmax rengoku.png" alt="TMAX x Rengoku">
       <h4>TMAX x Rengoku</h4>
     </div>
-    <div class="bike" onclick="showSpecs('XMAX x One Piece', 'Price: ₱299,000')">
+    <div class="bike fade-in" onclick="showSpecs('XMAX x One Piece', 'Price: ₱299,000')">
       <img src="xmax onepiece.png" alt="XMAX x One Piece">
       <h4>XMAX x One Piece</h4>
     </div>
-    <div class="bike" onclick="showSpecs('NMAX x Sukuna', 'Price: ₱164,000')">
+    <div class="bike fade-in" onclick="showSpecs('NMAX x Sukuna', 'Price: ₱164,000')">
       <img src="nmax sukuna.png" alt="NMAX x Sukuna">
       <h4>NMAX x Sukuna</h4>
     </div>
-    <div class="bike" onclick="showSpecs('AEROX x Kurama', 'Price: ₱124,000')">
+    <div class="bike fade-in" onclick="showSpecs('AEROX x Kurama', 'Price: ₱124,000')">
       <img src="aerox kurama.png" alt="AEROX x Kurama">
       <h4>AEROX x Kurama</h4>
     </div>
-    <div class="bike" onclick="showSpecs('LEXI x Super Saiyan', 'Price: ₱91,000')">
+    <div class="bike fade-in" onclick="showSpecs('LEXI x Super Saiyan', 'Price: ₱91,000')">
       <img src="lexi ssj.png" alt="LEXI x Super Saiyan">
       <h4>LEXI x Super Saiyan</h4>
     </div>
   </section>
 
-  <section class="contact" id="contact">
+  <section class="contact fade-in" id="contact">
     <h2>Contact Us</h2>
     <form>
       <input type="text" placeholder="Your Name" required>
@@ -245,21 +245,43 @@
     </form>
   </section>
 
-  <footer>
+  <footer class="fade-in">
     &copy; 2025 Yamaha Motor Co., Ltd.
   </footer>
 
   <script>
-    function showSpecs(title, details) {
-      document.getElementById('specTitle').innerText = title;
-      document.getElementById('specDetails').innerText = details;
-      document.getElementById('overlay').style.display = 'block';
-      document.getElementById('specModal').style.display = 'block';
-    }
-    function closeModal() {
-      document.getElementById('overlay').style.display = 'none';
-      document.getElementById('specModal').style.display = 'none';
-    }
-  </script>
+  function showSpecs(title, details) {
+    document.getElementById('specTitle').innerText = title;
+    document.getElementById('specDetails').innerText = details;
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('specModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('specModal').style.display = 'none';
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  });
+</script>
 </body>
 </html>

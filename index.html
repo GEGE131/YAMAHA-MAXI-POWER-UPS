@@ -6,19 +6,28 @@
   <title>YAMAHA MAXI POWER-UPS</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --accent-color: #9b111e; /* Ruby Red */
+    }
+
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
       background: linear-gradient(135deg, #000000, #1a1a1a);
-      color: #0ff;
+      color: white;
     }
     nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: #000;
       padding: 1rem 2rem;
-      border-bottom: 3px solid #0ff;
+      border-bottom: 3px solid var(--accent-color);
+      z-index: 10000;
+      transition: top 0.3s;
     }
     nav img {
       height: 40px;
@@ -30,12 +39,9 @@
       margin: 0;
       padding: 0;
     }
-    nav ul li {
-      display: inline;
-    }
     nav ul li a {
       text-decoration: none;
-      color: #0ff;
+      color: var(--accent-color);
       font-weight: bold;
       transition: color 0.3s;
     }
@@ -48,19 +54,20 @@
       background: #111;
       font-size: 2rem;
       letter-spacing: 2px;
-      border-bottom: 3px solid #0ff;
+      border-bottom: 3px solid var(--accent-color);
+      margin-top: 70px;
     }
     .introduction {
       padding: 2rem;
       background: #121212;
-      color: #0ff;
+      color: white;
       line-height: 1.6;
       max-width: 900px;
       margin: auto;
     }
     .introduction h3 {
-      color: #fff;
-      background: #0ff;
+      color: black;
+      background: var(--accent-color);
       padding: 0.5rem;
       border-radius: 6px;
       margin-top: 2rem;
@@ -73,18 +80,18 @@
     }
     .bike {
       background: #222;
-      border: 2px solid #0ff;
+      border: 2px solid var(--accent-color);
       padding: 1rem;
       text-align: center;
       opacity: 0;
-      animation: fadeIn 1s ease forwards;
+      animation: fadeInUp 1s ease forwards;
       transition: transform 0.5s ease, opacity 0.5s ease;
       transform: translateY(30px);
       cursor: pointer;
     }
     .bike:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px #0ff;
+      box-shadow: 0 0 15px var(--accent-color);
     }
     .bike img {
       max-width: 100%;
@@ -98,12 +105,12 @@
       transform: translate(-50%, -50%);
       background: #111;
       padding: 2rem;
-      border: 2px solid #0ff;
+      border: 2px solid var(--accent-color);
       border-radius: 10px;
-      box-shadow: 0 0 20px #0ff;
+      box-shadow: 0 0 20px var(--accent-color);
       z-index: 1000;
       display: none;
-      color: #0ff;
+      color: var(--accent-color);
       max-width: 400px;
     }
     .spec-modal h3 {
@@ -111,7 +118,7 @@
     }
     .spec-modal button {
       margin-top: 1rem;
-      background: #0ff;
+      background: var(--accent-color);
       color: #000;
       border: none;
       padding: 0.5rem 1rem;
@@ -129,17 +136,14 @@
       z-index: 999;
       display: none;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .contact {
       background: #1a1a1a;
       padding: 2rem;
-    }
-    .contact h2 {
-      text-align: center;
-      color: #0ff;
+      color: var(--accent-color);
     }
     form {
       max-width: 600px;
@@ -155,7 +159,7 @@
       font-family: 'Orbitron', sans-serif;
     }
     button {
-      background: #0ff;
+      background: var(--accent-color);
       color: #000;
       font-weight: bold;
       cursor: pointer;
@@ -166,10 +170,19 @@
       background: #111;
       color: #555;
     }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
   </style>
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>
+ <div class="overlay" id="overlay"></div>
   <div class="spec-modal" id="specModal">
     <h3 id="specTitle"></h3>
     <p id="specDetails"></p>

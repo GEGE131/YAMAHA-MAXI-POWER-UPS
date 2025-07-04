@@ -410,7 +410,127 @@ nav.hide-on-scroll {
         padding: 0.5rem;
     }
 }
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) #111;
+}
+
+/* Enhanced bike hover */
+.bike:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--accent-color), 0 0 40px rgba(255, 0, 0, 0.3);
+}
+
+
+.motor-select {
+  background-color: #111;
+  color: white;
+  padding: 0.75rem 1rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease;
+}
+.motor-select option[value="rengoku"] { background: #9b111e; color: #fff; }
+.motor-select option[value="onepiece"] { background: #0074D9; color: #fff; }
+.motor-select option[value="sukuna"] { background: #300000; color: #fff; }
+.motor-select option[value="kurama"] { background: #f39c12; color: #111; }
+.motor-select option[value="ssj"] { background: #f1c40f; color: #111; }
+
+
+/* Themed select dropdowns for modals */
+.plan-select {
+  background-color: #000;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  color: white;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.theme-rengoku {
+  background: linear-gradient(to right, #ff4500, #ff7518);
+  border-color: #ff7518;
+}
+
+.theme-onepiece {
+  background: linear-gradient(to right, #003366, #0074D9);
+  border-color: #0074D9;
+}
+
+.theme-sukuna {
+  background: linear-gradient(to right, #330000, #660000);
+  border-color: #990000;
+}
+
+.theme-kurama {
+  background: linear-gradient(to right, #ff8c00, #f39c12);
+  border-color: #e67e22;
+}
+
+.theme-ssj {
+  background: linear-gradient(to right, #f1c40f, #3498db);
+  border-color: #f1c40f;
+}
+
+
+/* Animate select dropdowns */
+.plan-select {
+  background-color: #000;
+  color: white;
+  animation: pulse-in 0.5s ease-in-out;
+}
+
+@keyframes pulse-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 </style>
+<meta name="keywords" content="Yamaha scooters, TMAX Rengoku, NMAX Sukuna, Aerox Kurama, XMAX One Piece, Lexi Super Saiyan, anime-themed motorbikes, custom Yamaha Philippines, Yamaha MAXI power-ups"/>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "YAMAHA MAXI POWER-UPS",
+  "url": "https://yourdomain.com"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Yamaha Motor Co., Ltd.",
+  "url": "https://global.yamaha-motor.com",
+  "logo": "https://yourdomain.com/yamaha-logo.png"
+}
+</script>
+
 </head>
 <body><div class="overlay" id="overlay"></div><div id="splash-screen"><img alt="Yamaha Logo" src="yamaha-logo.png"/></div>
 <!-- ================== YAMAHA XMAX x Demon Slayer ================== -->
@@ -453,7 +573,7 @@ nav.hide-on-scroll {
 <li>Enhanced Sound Profile: Street Legal, deep sporty tone</li>
 <li>Smart Ride Dashboard via Yamaha Y-Connect (Street/Flame/Sport themes)</li>
 </ul>
-<div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 829,000.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 414,500.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 69,083.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+<div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select theme-rengoku" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 829,000.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 414,500.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan (12 mos) - ₱ 69,083.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div>
 </div>
 </div>
 <!-- ================== YAMAHA XMAX x One Piece ================== -->
@@ -497,7 +617,7 @@ nav.hide-on-scroll {
 <li>Anti-theft alarm system (motion sensor + remote lock)</li>
 <li>Smart key compatibility (on selected trims)</li>
 </ul>
-<div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 361,000.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 180,500.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 30,083.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+<div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select theme-onepiece" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 361,000.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 180,500.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan (12 mos) - ₱ 30,083.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div>
 </div>
 </div>
 <!-- ================== YAMAHA NMAX x Jujutsu Kaisen ================== -->
@@ -537,7 +657,7 @@ nav.hide-on-scroll {
 <li>Cursed Grin Headlight Setup</li>
 <li>Throne of the Cursed Seat</li>
 </ul>
-<div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 205,900.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 102,950.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 17,158.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+<div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select theme-sukuna" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 205,900.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 102,950.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan (12 mos) - ₱ 17,158.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div>
 </div>
 </div>
 <!-- ================== YAMAHA AEROX x Naruto Shippuden ================== -->
@@ -577,7 +697,7 @@ nav.hide-on-scroll {
 <li>Functional Fox Ear Mirrors</li>
 <li>Black Ninja Comfort Seat</li>
 </ul>
-</ul><div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 195,000.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 97,500.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 16,250.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+</ul><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select theme-kurama" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 195,000.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 97,500.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan (12 mos) - ₱ 16,250.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div>
 </div>
 </div>
 <!-- ================== YAMAHA LEXI x Dragon Ball Z ================== -->
@@ -617,7 +737,7 @@ nav.hide-on-scroll {
 <li>Custom Sport Saddle</li>
 <li>Performance-Grade Exhaust</li>
 </ul>
-<div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 130,400.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 65,200.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 10,866.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+<div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select theme-ssj" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 130,400.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 65,200.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan (12 mos) - ₱ 10,866.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div>
 </div>
 </div>
 <nav class="fade-in">
@@ -641,24 +761,26 @@ nav.hide-on-scroll {
 <h3>The Vision Behind Yamaha Power Ups: Why It Matters</h3>
 <p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
 </section>
+
+
 <section class="gallery fade-in" id="motors">
-<div class="bike fade-in" onclick="showSpecs('specModal')">
+<div class="bike fade-in" data-theme="rengoku" onclick="showSpecs('specModal')">
 <img alt="TMAX x Rengoku" loading="lazy" src="tmax rengoku.png"/>
 <h4>TMAX x Rengoku</h4>
 </div>
-<div class="bike fade-in" onclick="showSpecs('xmax-popup')">
+<div class="bike fade-in" data-theme="onepiece" onclick="showSpecs('xmax-popup')">
 <img alt="XMAX x One Piece" loading="lazy" src="xmax onepiece.png"/>
 <h4>XMAX x One Piece</h4>
 </div>
-<div class="bike fade-in" onclick="showSpecs('nmax-popup')">
+<div class="bike fade-in" data-theme="sukuna" onclick="showSpecs('nmax-popup')">
 <img alt="NMAX x Sukuna" loading="lazy" src="nmax sukuna.png"/>
 <h4>NMAX x Sukuna</h4>
 </div>
-<div class="bike fade-in" onclick="showSpecs('aerox-popup')">
+<div class="bike fade-in" data-theme="kurama" onclick="showSpecs('aerox-popup')">
 <img alt="AEROX x Kurama" loading="lazy" src="aerox kurama.png"/>
 <h4>AEROX x Kurama</h4>
 </div>
-<div class="bike fade-in" onclick="showSpecs('lexi-popup')">
+<div class="bike fade-in" data-theme="ssj" onclick="showSpecs('lexi-popup')">
 <img alt="LEXI x Super Saiyan" loading="lazy" src="lexi ssj.png"/>
 <h4>LEXI x Super Saiyan</h4>
 </div>
@@ -803,5 +925,6 @@ window.addEventListener('scroll', function () {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // for mobile or negative scroll
 });
 </script>
+
 </body>
 </html>

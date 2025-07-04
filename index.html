@@ -252,17 +252,21 @@ header {
                 opacity: 1;
                 transform: none;
         }
-	.close-icon {
-	    position: absolute;
-	    top: 1rem;
-	    right: 1.5rem;
-	    font-size: 2rem;
-	    font-weight: bold;
-	    color: var(--accent-color);
-	    cursor: pointer;
-	    z-index: 1001;
-	    transition: color 0.3s ease;
-	}
+	
+
+.close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+
 
 	.close-icon:hover {
 	    color: white;
@@ -531,6 +535,21 @@ body {
   font-weight: bold;
 }
 
+
+.close-icon:hover::after {
+  content: "Close";
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  background: var(--accent-color);
+  color: #000;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 1002;
+}
+
 </style>
 <meta name="keywords" content="Yamaha scooters, TMAX Rengoku, NMAX Sukuna, Aerox Kurama, XMAX One Piece, Lexi Super Saiyan, anime-themed motorbikes, custom Yamaha Philippines, Yamaha MAXI power-ups"/>
 
@@ -557,7 +576,7 @@ body {
 <body><div class="overlay" id="overlay"></div><div id="splash-screen"><img alt="Yamaha Logo" src="yamaha-logo.png"/></div>
 <!-- ================== YAMAHA XMAX x Demon Slayer ================== -->
 <div class="spec-modal" id="specModal" data-price="829000">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
 <div class="spec-modal-content">
 <img alt="Bike Image" loading="lazy" src="tmax rengoku.png"/>
 <div class="spec-text">
@@ -603,7 +622,7 @@ body {
 </div>
 <!-- ================== YAMAHA XMAX x One Piece ================== -->
 <div class="spec-modal" id="xmax-popup" data-price="361000">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
 <div class="spec-modal-content">
 <img alt="XMAX One Piece" loading="lazy" src="xmax onepiece.png"/>
 <div class="spec-text">
@@ -650,7 +669,7 @@ body {
 </div>
 <!-- ================== YAMAHA NMAX x Jujutsu Kaisen ================== -->
 <div class="spec-modal" id="nmax-popup" data-price="205900">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
 <div class="spec-modal-content">
 <img alt="NMAX Jujutsu Kaisen" loading="lazy" src="nmax sukuna.png"/>
 <div class="spec-text">
@@ -693,7 +712,7 @@ body {
 </div>
 <!-- ================== YAMAHA AEROX x Naruto Shippuden ================== -->
 <div class="spec-modal" id="aerox-popup" data-price="195000">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
 <div class="spec-modal-content">
 <img alt="AEROX Naruto" loading="lazy" src="aerox kurama.png"/>
 <div class="spec-text">
@@ -736,7 +755,7 @@ body {
 </div>
 <!-- ================== YAMAHA LEXI x Dragon Ball Z ================== -->
 <div class="spec-modal" id="lexi-popup" data-price="130400">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
 <div class="spec-modal-content">
 <img alt="LEXI Dragon Ball Z" loading="lazy" src="lexi ssj.png"/>
 <div class="spec-text">
@@ -969,24 +988,19 @@ document.querySelectorAll('.plan-select').forEach(select => {
   select.addEventListener('change', function () {
     const modal = this.closest('.spec-modal');
     const basePrice = parseFloat(modal.getAttribute('data-price'));
-    const tax = basePrice * 0.12;
+
     const promoInput = modal.querySelector('.promo-code');
     const promo = promoInput ? promoInput.value.trim().toUpperCase() : "";
-
-    let shipping = 2000;
     let discount = 0;
 
     if (promo === "SAVE10") {
       discount = basePrice * 0.10;
     }
-    if (promo === "SHIPFREE") {
-      shipping = 0;
-    }
 
     const selectedText = this.options[this.selectedIndex].text;
-    const total = basePrice + tax + shipping - discount;
+    const final = basePrice - discount;
 
-    let breakdown = `Base: ₱${basePrice.toLocaleString()} + Tax (12%): ₱${tax.toLocaleString()} + Shipping: ₱${shipping.toLocaleString()} - Discount: ₱${discount.toLocaleString()} → Total: ₱${total.toLocaleString()}`;
+    let breakdown = `Base: ₱${basePrice.toLocaleString()} - Discount: ₱${discount.toLocaleString()} → Total: ₱${final.toLocaleString()}`;
 
     let display = modal.querySelector('.price-preview');
     if (!display) {
@@ -999,7 +1013,6 @@ document.querySelectorAll('.plan-select').forEach(select => {
   });
 });
 
-// Listen to promo code field changes and re-trigger calculation
 document.querySelectorAll('.promo-code').forEach(input => {
   input.addEventListener('input', function () {
     const select = this.closest('.spec-text').querySelector('.plan-select');

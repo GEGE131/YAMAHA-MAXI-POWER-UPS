@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YAMAHA MAXI POWER-UPS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>YAMAHA MAXI POWER-UPS</title><meta content="Customized Yamaha MAXI scooters with anime themes like Demon Slayer, One Piece, Naruto, and more." name="description"/><meta content="YAMAHA MAXI POWER-UPS" property="og:title"/><meta content="Experience anime meets horsepower with these powerful Yamaha scooter upgrades." property="og:description"/><meta content="preview.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&amp;display=swap" rel="stylesheet"/>
+<style>
         :root {
             --accent-color: #9b111e;
         }
@@ -17,44 +18,47 @@
             color: white;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #000;
-            padding: 1rem 2rem;
-            border-bottom: 3px solid var(--accent-color);
-            z-index: 10000;
-            transition: top 0.3s;
-        }
+        
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 3px solid var(--accent-color);
+    z-index: 10000;
+    transition: background 0.3s, top 0.3s;
+}
 
-            nav img {
-                height: 40px;
-            }
+nav img {
+    height: 50px;
+}
 
-            nav ul {
-                list-style: none;
-                display: flex;
-                gap: 1.5rem;
-                margin: 0;
-                padding: 0;
-            }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
 
-                nav ul li a {
-                    text-decoration: none;
-                    color: var(--accent-color);
-                    font-weight: bold;
-                    transition: color 0.3s;
-                }
+nav ul li a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
 
-                    nav ul li a:hover {
-                        color: #fff;
-                    }
-
-        header {
+nav ul li a:hover {
+    color: #fff;
+}
+header {
             text-align: center;
             padding: 2rem;
             background: #111;
@@ -241,327 +245,467 @@
             .fade-in.visible {
                 opacity: 1;
                 transform: none;
-            }
-    </style>
+        }
+	.close-icon {
+	    position: absolute;
+	    top: 1rem;
+	    right: 1.5rem;
+	    font-size: 2rem;
+	    font-weight: bold;
+	    color: var(--accent-color);
+	    cursor: pointer;
+	    z-index: 1001;
+	    transition: color 0.3s ease;
+	}
+
+	.close-icon:hover {
+	    color: white;
+	}
+    
+.spec-modal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.spec-modal.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, black, var(--accent-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    animation: fadeOutSplash 2.5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+#splash-screen img {
+    width: 250px;
+    height: auto;
+    animation: zoomIn 1s ease;
+}
+
+@keyframes fadeOutSplash {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.buy-popup {
+    display: none;
+    position: fixed;
+    z-index: 20000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111;
+    color: white;
+    padding: 2rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--accent-color);
+    width: 300px;
+    text-align: center;
+}
+.buy-popup.show {
+    display: block;
+}
+.buy-popup button {
+    margin-top: 1rem;
+}
+</style>
 </head>
-<body>
-
-    <!-- ================== YAMAHA XMAX x Demon Slayer ================== -->
-    <div class="overlay" id="overlay"></div>
-    <div class="spec-modal" id="specModal">
-        <div class="spec-modal-content">
-            <img src="tmax rengoku.png" alt="Bike Image">
-            <div class="spec-text">
-                <h3>YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku (₱ 829,000.00)</h3>
-                <p><strong>SPECIFICATIONS</strong></p>
-                <ul>
-                    <li>Mileage (City): 46.5–50 kmpl</li>
-                    <li>Displacement: 155 cc</li>
-                    <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve VVA</li>
-                    <li>No. of Cylinders: 1</li>
-                    <li>Max Power: 15.5 PS @ 8000 rpm</li>
-                    <li>Max Torque: 14 Nm @ 6500 rpm</li>
-                    <li>Front Brake: 230 mm Hydraulic Disc</li>
-                    <li>Rear Brake: 130 mm Drum / Optional Disc Variant</li>
-                    <li>Fuel Capacity: 5.5 L</li>
-                    <li>Fuel Type: Hydro fuel</li>
-                </ul>
-                <p><strong>TECH & FEATURES</strong></p>
-                <ul>
-                    <li>ABS: Single Channel ABS (Front)</li>
-                    <li>Seat Opening Switch: Yes (Integrated Keyless Start + Remote Unlock)</li>
-                    <li>External Fuel Filling: Yes (Front fuel port – no need to lift seat)</li>
-                    <li>Mobile Connectivity: Yamaha Y-Connect App (Bluetooth-enabled)</li>
-                    <li>Shutter Lock: Yes (Key Shutter with Magnetic Lock)</li>
-                    <li>Clock: Yes (Digital)</li>
-                    <li>Speedometer: Fully Digital LCD</li>
-                    <li>Odometer: Digital</li>
-                    <li>Tripmeter: Digital (Trip A / Trip B / Fuel Economy Mode)</li>
-                    <li>Tachometer: Digital Bar-Type</li>
-                </ul>
-                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
-                <ul>
-                    <li>Flame Tip LED Design</li>
-                    <li>Rear LEDs in red-orange gradient for heat-trail effect</li>
-                    <li>Enhanced Sound Profile: Street Legal, deep sporty tone</li>
-                    <li>Smart Ride Dashboard via Yamaha Y-Connect (Street/Flame/Sport themes)</li>
-                </ul>
-                <button onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================== YAMAHA XMAX x One Piece ================== -->
-    <div class="overlay" id="overlay"></div>
-    <div class="spec-modal" id="xmax-popup">
-        <div class="spec-modal-content">
-            <img src="xmax onepiece.png" alt="XMAX One Piece">
-            <div class="spec-text">
-                <h3>YAMAHA XMAX x One Piece: The Thousand Sunny (₱ 361,000.00)</h3>
-                <p><strong>SPECIFICATIONS</strong></p>
-                <ul>
-                    <li>Mileage (City): 45–48 kmpl</li>
-                    <li>Displacement: 155 cc</li>
-                    <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
-                    <li>No. of Cylinders: 1</li>
-                    <li>Max Power: 15.4 PS @ 8000 rpm</li>
-                    <li>Max Torque: 13.9 Nm @ 6500 rpm</li>
-                    <li>Front Brake: 230 mm Disc (Hydraulic, ABS)</li>
-                    <li>Rear Brake: 130 mm Drum / Optional rear disc upgrade</li>
-                    <li>Fuel Capacity: 5.5 L</li>
-                    <li>Fuel Type: Hydro fuel</li>
-                </ul>
-                <p><strong>TECH & FEATURES</strong></p>
-                <ul>
-                    <li>ABS: Single-Channel ABS (Front)</li>
-                    <li>Seat Opening Switch: Yes (Remote access under seat)</li>
-                    <li>External Fuel Filling: Yes (Smart tank access near handlebar)</li>
-                    <li>Mobile Connectivity: Yamaha Y-Connect App – monitor fuel, call alerts, maintenance</li>
-                    <li>Shutter Lock: Yes (Magnetic key shutter lock)</li>
-                    <li>Clock: Digital</li>
-                    <li>Speedometer: Fully Digital LCD</li>
-                    <li>Odometer: Digital</li>
-                    <li>Tripmeter: Trip A / Trip B / Real-time Fuel Monitoring</li>
-                    <li>Tachometer: Bar-style digital tachometer</li>
-                </ul>
-                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
-                <ul>
-                    <li>Anime-Inspired Full Body Wrap</li>
-                    <li>Dual-Texture Adventure Seat</li>
-                    <li>Enhanced Street Sound Muffler</li>
-                    <li>Anti-theft alarm system (motion sensor + remote lock)</li>
-                    <li>Smart key compatibility (on selected trims)</li>
-                </ul>
-                <button onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================== YAMAHA NMAX x Jujutsu Kaisen ================== -->
-    <div class="overlay" id="overlay"></div>
-    <div class="spec-modal" id="nmax-popup">
-        <div class="spec-modal-content">
-            <img src="nmax sukuna.png" alt="NMAX Jujutsu Kaisen">
-            <div class="spec-text">
-                <h3>YAMAHA NMAX x Jujutsu Kaisen: Possessed Sukuna (₱ 205,900.00)</h3>
-                <p><strong>SPECIFICATIONS</strong></p>
-                <ul>
-                    <li>Engine Displacement: 155 cc</li>
-                    <li>Engine Type: 4-stroke, Liquid-Cooled, SOHC, 4-Valve with VVA</li>
-                    <li>Max Power: 15.4 PS @ 8000 rpm</li>
-                    <li>Max Torque: 13.9 Nm @ 6500 rpm</li>
-                    <li>Mileage (City): 45–48 km/l</li>
-                    <li>Fuel Type: Hydro Fuel Compatible</li>
-                    <li>Fuel Tank: 5.5 L</li>
-                    <li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
-                    <li>Rear Brake: 130 mm Drum (optional rear disc)</li>
-                    <li>Tires: Tubeless “Cursed Grip” treads for urban dominance</li>
-                </ul>
-                <p><strong>TECH & FEATURES</strong></p>
-                <ul>
-                    <li>ABS: Front Single-Channel ABS</li>
-                    <li>Lighting: Full LED package (Quad-eye front, fang DRL, rear tail LED)</li>
-                    <li>Smart Seat Access: Remote under-seat release</li>
-                    <li>Fuel Cap: External front-located</li>
-                    <li>Security: Magnetic shutter lock with cursed-seal cap design</li>
-                    <li>App Connectivity: Yamaha Y-Connect</li>
-                    <li>Digital Display Cluster: Full LCD with cursed-red glow theme</li>
-                    <li>Trip A/B, Real-time Consumption Monitor</li>
-                </ul>
-                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
-                <ul>
-                    <li>Cursed King Full-Body Wrap</li>
-                    <li>Cursed Grin Headlight Setup</li>
-                    <li>Throne of the Cursed Seat</li>
-                </ul>
-                <button onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================== YAMAHA AEROX x Naruto Shippuden ================== -->
-    <div class="overlay" id="overlay"></div>
-    <div class="spec-modal" id="aerox-popup">
-        <div class="spec-modal-content">
-            <img src="aerox kurama.png" alt="AEROX Naruto">
-            <div class="spec-text">
-                <h3>YAMAHA AEROX x Naruto Shippuden: Nine-tailed Beast Kurama (₱ 195,000.00)</h3>
-                <p><strong>SPECIFICATIONS</strong></p>
-                <ul>
-                    <li>Displacement: 155 cc</li>
-                    <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
-                    <li>No. of Cylinders: 1</li>
-                    <li>Max Power: 15.4 PS @ 8000 rpm</li>
-                    <li>Max Torque: 13.9 Nm @ 6500 rpm</li>
-                    <li>Mileage (City): 45–48 km/l</li>
-                    <li>Fuel Type: Hydro Fuel Compatible</li>
-                    <li>Fuel Tank Capacity: 5.5 L</li>
-                    <li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
-                    <li>Rear Brake: 130 mm Drum / Optional Disc Upgrade</li>
-                    <li>Tires: Tubeless, Sport Tread</li>
-                    <p><strong>TECH & FEATURES</strong></p>
-                    <ul>
-                        <li>ABS: Front Single-Channel ABS</li>
-                        <li>LED Lighting: Red projector “chakra eyes” with snout-mounted fog light</li>
-                        <li>Turn Signals: Animated LED pulse (fox-ear mirrors)</li>
-                        <li>Seat Opening Switch: Yes</li>
-                        <li>Fuel Cap Access: External front smart cap</li>
-                        <li>Smart App: Yamaha Y-Connect</li>
-                        <li>Security: Magnetic shutter key lock</li>
-                        <li>Digital Cluster: Clock, Speedometer, Odometer, Trip A/B, Fuel Display</li>
-                    </ul>
-                    <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
-                    <ul>
-                        <li>Kurama-Inspired Full Body Shell</li>
-                        <li>Functional Fox Ear Mirrors</li>
-                        <li>Black Ninja Comfort Seat</li>
-                    </ul>
-                    <button onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================== YAMAHA LEXI x Dragon Ball Z ================== -->
-    <div class="overlay" id="overlay"></div>
-    <div class="spec-modal" id="lexi-popup">
-        <div class="spec-modal-content">
-            <img src="lexi ssj.png" alt="LEXI Dragon Ball Z">
-            <div class="spec-text">
-                <h3>YAMAHA LEXI x Dragon Ball Z: Super Saiyan Mode (₱ 130,400.00)</h3>
-                <p><strong>SPECIFICATIONS</strong></p>
-                <ul>
-                    <li>Displacement: 155 cc</li>
-                    <li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
-                    <li>No. of Cylinders: 1</li>
-                    <li>Max Power: 15.4 PS @ 8000 rpm</li>
-                    <li>Max Torque: 13.9 Nm @ 6500 rpm</li>
-                    <li>Mileage (City): 45–48 km/l</li>
-                    <li>Fuel Type: Hydro Fuel Compatible</li>
-                    <li>Fuel Tank Capacity: 5.5 L</li>
-                    <li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
-                    <li>Rear Brake: 130 mm Drum / Optional Disc Upgrade</li>
-                    <li>Tires: Tubeless, Sport Tread</li>
-                </ul>
-                <p><strong>TECH & FEATURES</strong></p>
-                <ul>
-                    <li>ABS: Front Single-Channel ABS</li>
-                    <li>Headlights: LED Projector with bright blue tint</li>
-                    <li>Seat Opening Switch: Yes</li>
-                    <li>Fuel Access: External front fuel cap</li>
-                    <li>Mobile App: Yamaha Y-Connect</li>
-                    <li>Anti-Theft: Magnetic shutter lock</li>
-                    <li>Dashboard: Fully Digital LCD Cluster (Clock, Speedo, Odo, Trip A/B, Fuel, Tachometer)</li>
-                </ul>
-                <p><strong>SPECIAL CUSTOM FEATURES</strong></p>
-                <ul>
-                    <li>Super Saiyan-Themed Custom Body Kit</li>
-                    <li>Custom Sport Saddle</li>
-                    <li>Performance-Grade Exhaust</li>
-                </ul>
-                <button onclick="closeModal()">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <nav class="fade-in">
-        <img src="yamaha-logo.png" alt="Yamaha Logo">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#motors">Motors</a></li>
-            <li><a href="#contact">Contacts</a></li>
-        </ul>
-    </nav>
-
-    <header class="fade-in">
+<body><div class="overlay" id="overlay"></div><div id="splash-screen"><img alt="Yamaha Logo" src="yamaha-logo.png"/></div>
+<!-- ================== YAMAHA XMAX x Demon Slayer ================== -->
+<div class="spec-modal" id="specModal">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<div class="spec-modal-content">
+<img alt="Bike Image" loading="lazy" src="tmax rengoku.png"/>
+<div class="spec-text">
+<h3>YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku (₱ 829,000.00)</h3>
+<p><strong>SPECIFICATIONS</strong></p>
+<ul>
+<li>Mileage (City): 46.5–50 kmpl</li>
+<li>Displacement: 155 cc</li>
+<li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve VVA</li>
+<li>No. of Cylinders: 1</li>
+<li>Max Power: 15.5 PS @ 8000 rpm</li>
+<li>Max Torque: 14 Nm @ 6500 rpm</li>
+<li>Front Brake: 230 mm Hydraulic Disc</li>
+<li>Rear Brake: 130 mm Drum / Optional Disc Variant</li>
+<li>Fuel Capacity: 5.5 L</li>
+<li>Fuel Type: Hydro fuel</li>
+</ul>
+<p><strong>TECH &amp; FEATURES</strong></p>
+<ul>
+<li>ABS: Single Channel ABS (Front)</li>
+<li>Seat Opening Switch: Yes (Integrated Keyless Start + Remote Unlock)</li>
+<li>External Fuel Filling: Yes (Front fuel port – no need to lift seat)</li>
+<li>Mobile Connectivity: Yamaha Y-Connect App (Bluetooth-enabled)</li>
+<li>Shutter Lock: Yes (Key Shutter with Magnetic Lock)</li>
+<li>Clock: Yes (Digital)</li>
+<li>Speedometer: Fully Digital LCD</li>
+<li>Odometer: Digital</li>
+<li>Tripmeter: Digital (Trip A / Trip B / Fuel Economy Mode)</li>
+<li>Tachometer: Digital Bar-Type</li>
+</ul>
+<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<ul>
+<li>Flame Tip LED Design</li>
+<li>Rear LEDs in red-orange gradient for heat-trail effect</li>
+<li>Enhanced Sound Profile: Street Legal, deep sporty tone</li>
+<li>Smart Ride Dashboard via Yamaha Y-Connect (Street/Flame/Sport themes)</li>
+</ul>
+<div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 829,000.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 414,500.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 69,083.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+</div>
+</div>
+<!-- ================== YAMAHA XMAX x One Piece ================== -->
+<div class="spec-modal" id="xmax-popup">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<div class="spec-modal-content">
+<img alt="XMAX One Piece" loading="lazy" src="xmax onepiece.png"/>
+<div class="spec-text">
+<h3>YAMAHA XMAX x One Piece: The Thousand Sunny (₱ 361,000.00)</h3>
+<p><strong>SPECIFICATIONS</strong></p>
+<ul>
+<li>Mileage (City): 45–48 kmpl</li>
+<li>Displacement: 155 cc</li>
+<li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
+<li>No. of Cylinders: 1</li>
+<li>Max Power: 15.4 PS @ 8000 rpm</li>
+<li>Max Torque: 13.9 Nm @ 6500 rpm</li>
+<li>Front Brake: 230 mm Disc (Hydraulic, ABS)</li>
+<li>Rear Brake: 130 mm Drum / Optional rear disc upgrade</li>
+<li>Fuel Capacity: 5.5 L</li>
+<li>Fuel Type: Hydro fuel</li>
+</ul>
+<p><strong>TECH &amp; FEATURES</strong></p>
+<ul>
+<li>ABS: Single-Channel ABS (Front)</li>
+<li>Seat Opening Switch: Yes (Remote access under seat)</li>
+<li>External Fuel Filling: Yes (Smart tank access near handlebar)</li>
+<li>Mobile Connectivity: Yamaha Y-Connect App – monitor fuel, call alerts, maintenance</li>
+<li>Shutter Lock: Yes (Magnetic key shutter lock)</li>
+<li>Clock: Digital</li>
+<li>Speedometer: Fully Digital LCD</li>
+<li>Odometer: Digital</li>
+<li>Tripmeter: Trip A / Trip B / Real-time Fuel Monitoring</li>
+<li>Tachometer: Bar-style digital tachometer</li>
+</ul>
+<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<ul>
+<li>Anime-Inspired Full Body Wrap</li>
+<li>Dual-Texture Adventure Seat</li>
+<li>Enhanced Street Sound Muffler</li>
+<li>Anti-theft alarm system (motion sensor + remote lock)</li>
+<li>Smart key compatibility (on selected trims)</li>
+</ul>
+<div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 361,000.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 180,500.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 30,083.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+</div>
+</div>
+<!-- ================== YAMAHA NMAX x Jujutsu Kaisen ================== -->
+<div class="spec-modal" id="nmax-popup">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<div class="spec-modal-content">
+<img alt="NMAX Jujutsu Kaisen" loading="lazy" src="nmax sukuna.png"/>
+<div class="spec-text">
+<h3>YAMAHA NMAX x Jujutsu Kaisen: Possessed Sukuna (₱ 205,900.00)</h3>
+<p><strong>SPECIFICATIONS</strong></p>
+<ul>
+<li>Engine Displacement: 155 cc</li>
+<li>Engine Type: 4-stroke, Liquid-Cooled, SOHC, 4-Valve with VVA</li>
+<li>Max Power: 15.4 PS @ 8000 rpm</li>
+<li>Max Torque: 13.9 Nm @ 6500 rpm</li>
+<li>Mileage (City): 45–48 km/l</li>
+<li>Fuel Type: Hydro Fuel Compatible</li>
+<li>Fuel Tank: 5.5 L</li>
+<li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
+<li>Rear Brake: 130 mm Drum (optional rear disc)</li>
+<li>Tires: Tubeless “Cursed Grip” treads for urban dominance</li>
+</ul>
+<p><strong>TECH &amp; FEATURES</strong></p>
+<ul>
+<li>ABS: Front Single-Channel ABS</li>
+<li>Lighting: Full LED package (Quad-eye front, fang DRL, rear tail LED)</li>
+<li>Smart Seat Access: Remote under-seat release</li>
+<li>Fuel Cap: External front-located</li>
+<li>Security: Magnetic shutter lock with cursed-seal cap design</li>
+<li>App Connectivity: Yamaha Y-Connect</li>
+<li>Digital Display Cluster: Full LCD with cursed-red glow theme</li>
+<li>Trip A/B, Real-time Consumption Monitor</li>
+</ul>
+<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<ul>
+<li>Cursed King Full-Body Wrap</li>
+<li>Cursed Grin Headlight Setup</li>
+<li>Throne of the Cursed Seat</li>
+</ul>
+<div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 205,900.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 102,950.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 17,158.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+</div>
+</div>
+<!-- ================== YAMAHA AEROX x Naruto Shippuden ================== -->
+<div class="spec-modal" id="aerox-popup">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<div class="spec-modal-content">
+<img alt="AEROX Naruto" loading="lazy" src="aerox kurama.png"/>
+<div class="spec-text">
+<h3>YAMAHA AEROX x Naruto Shippuden: Nine-tailed Beast Kurama (₱ 195,000.00)</h3>
+<p><strong>SPECIFICATIONS</strong></p>
+<ul>
+<li>Displacement: 155 cc</li>
+<li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
+<li>No. of Cylinders: 1</li>
+<li>Max Power: 15.4 PS @ 8000 rpm</li>
+<li>Max Torque: 13.9 Nm @ 6500 rpm</li>
+<li>Mileage (City): 45–48 km/l</li>
+<li>Fuel Type: Hydro Fuel Compatible</li>
+<li>Fuel Tank Capacity: 5.5 L</li>
+<li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
+<li>Rear Brake: 130 mm Drum / Optional Disc Upgrade</li>
+<li>Tires: Tubeless, Sport Tread</li>
+<p><strong>TECH &amp; FEATURES</strong></p>
+<ul>
+<li>ABS: Front Single-Channel ABS</li>
+<li>LED Lighting: Red projector “chakra eyes” with snout-mounted fog light</li>
+<li>Turn Signals: Animated LED pulse (fox-ear mirrors)</li>
+<li>Seat Opening Switch: Yes</li>
+<li>Fuel Cap Access: External front smart cap</li>
+<li>Smart App: Yamaha Y-Connect</li>
+<li>Security: Magnetic shutter key lock</li>
+<li>Digital Cluster: Clock, Speedometer, Odometer, Trip A/B, Fuel Display</li>
+</ul>
+<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<ul>
+<li>Kurama-Inspired Full Body Shell</li>
+<li>Functional Fox Ear Mirrors</li>
+<li>Black Ninja Comfort Seat</li>
+</ul>
+</ul><div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 195,000.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 97,500.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 16,250.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+</div>
+</div>
+<!-- ================== YAMAHA LEXI x Dragon Ball Z ================== -->
+<div class="spec-modal" id="lexi-popup">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()">×</span>
+<div class="spec-modal-content">
+<img alt="LEXI Dragon Ball Z" loading="lazy" src="lexi ssj.png"/>
+<div class="spec-text">
+<h3>YAMAHA LEXI x Dragon Ball Z: Super Saiyan Mode (₱ 130,400.00)</h3>
+<p><strong>SPECIFICATIONS</strong></p>
+<ul>
+<li>Displacement: 155 cc</li>
+<li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
+<li>No. of Cylinders: 1</li>
+<li>Max Power: 15.4 PS @ 8000 rpm</li>
+<li>Max Torque: 13.9 Nm @ 6500 rpm</li>
+<li>Mileage (City): 45–48 km/l</li>
+<li>Fuel Type: Hydro Fuel Compatible</li>
+<li>Fuel Tank Capacity: 5.5 L</li>
+<li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
+<li>Rear Brake: 130 mm Drum / Optional Disc Upgrade</li>
+<li>Tires: Tubeless, Sport Tread</li>
+</ul>
+<p><strong>TECH &amp; FEATURES</strong></p>
+<ul>
+<li>ABS: Front Single-Channel ABS</li>
+<li>Headlights: LED Projector with bright blue tint</li>
+<li>Seat Opening Switch: Yes</li>
+<li>Fuel Access: External front fuel cap</li>
+<li>Mobile App: Yamaha Y-Connect</li>
+<li>Anti-Theft: Magnetic shutter lock</li>
+<li>Dashboard: Fully Digital LCD Cluster (Clock, Speedo, Odo, Trip A/B, Fuel, Tachometer)</li>
+</ul>
+<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<ul>
+<li>Super Saiyan-Themed Custom Body Kit</li>
+<li>Custom Sport Saddle</li>
+<li>Performance-Grade Exhaust</li>
+</ul>
+<div class="buy-now"><div class="buy-now"><label for="plan-select">Select Payment:</label><select class="plan-select" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">Full Payment - ₱ 130,400.00</option><option value="Yearly Plan (2 years)">Yearly Plan (2 years) - ₱ 65,200.00 / year</option><option value="Monthly Plan (12 months)">Monthly Plan (12 months) - ₱ 10,866.00 / month</option></select><br/><button style="margin-top: 1rem;">Buy Now</button></div></div></div>
+</div>
+</div>
+<nav class="fade-in">
+<img alt="Yamaha Logo" loading="lazy" src="yamaha-logo.png"/>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#motors">Motors</a></li>
+<li><a href="#contact">Contacts</a></li>
+</ul>
+</nav>
+<header class="fade-in">
         YAMAHA MAXI POWER-UPS
     </header>
-
-    <section class="introduction fade-in" id="about">
-        <h2>Welcome to Yamaha Maxi Power-Ups</h2>
-        <h3>Exploring the Legacy of Yamaha</h3>
-        <p>The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.</p>
-        <h3>Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels</h3>
-        <p>The LEXI, NMAX, Aerox, XMAX, and TMAX are among the high-end scooters in the Yamaha MAXI Family portfolio. These scooters are renowned for their fashionable designs, strong engines, and comfort. In contrast to regular scooters, MAXI scooters have a larger frame, a smoother ride, and features that make them perfect for long-distance and daily commuting. Because it strikes the ideal combination between comfort, power, and efficiency, the Yamaha NMAX 155cc is particularly well-liked in the Philippines.</p>
-        <h3>The Vision Behind Yamaha Power Ups: Why It Matters</h3>
-        <p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
-    </section>
-
-    <section class="gallery fade-in" id="motors">
-        <div class="bike fade-in" onclick="showSpecs('specModal')">
-            <img src="tmax rengoku.png" alt="TMAX x Rengoku">
-            <h4>TMAX x Rengoku</h4>
-        </div>
-        <div class="bike fade-in" onclick="showSpecs('xmax-popup')">
-            <img src="xmax onepiece.png" alt="XMAX x One Piece">
-            <h4>XMAX x One Piece</h4>
-        </div>
-        <div class="bike fade-in" onclick="showSpecs('nmax-popup')">
-            <img src="nmax sukuna.png" alt="NMAX x Sukuna">
-            <h4>NMAX x Sukuna</h4>
-        </div>
-        <div class="bike fade-in" onclick="showSpecs('aerox-popup')">
-            <img src="aerox kurama.png" alt="AEROX x Kurama">
-            <h4>AEROX x Kurama</h4>
-        </div>
-        <div class="bike fade-in" onclick="showSpecs('lexi-popup')">
-            <img src="lexi ssj.png" alt="LEXI x Super Saiyan">
-            <h4>LEXI x Super Saiyan</h4>
-        </div>
-    </section>
-
-    <section class="contact fade-in" id="contact">
-        <h2>Contact Us</h2>
-        <form aria-label="Contact Form">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
-
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <footer class="fade-in">
-        &copy; 2025 Yamaha Motor Co., Ltd.
+<section class="introduction fade-in" id="about">
+<h2>Welcome to Yamaha Maxi Power-Ups</h2>
+<h3>Exploring the Legacy of Yamaha</h3>
+<p>The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.</p>
+<h3>Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels</h3>
+<p>The LEXI, NMAX, Aerox, XMAX, and TMAX are among the high-end scooters in the Yamaha MAXI Family portfolio. These scooters are renowned for their fashionable designs, strong engines, and comfort. In contrast to regular scooters, MAXI scooters have a larger frame, a smoother ride, and features that make them perfect for long-distance and daily commuting. Because it strikes the ideal combination between comfort, power, and efficiency, the Yamaha NMAX 155cc is particularly well-liked in the Philippines.</p>
+<h3>The Vision Behind Yamaha Power Ups: Why It Matters</h3>
+<p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
+</section>
+<section class="gallery fade-in" id="motors">
+<div class="bike fade-in" onclick="showSpecs('specModal')">
+<img alt="TMAX x Rengoku" loading="lazy" src="tmax rengoku.png"/>
+<h4>TMAX x Rengoku</h4>
+</div>
+<div class="bike fade-in" onclick="showSpecs('xmax-popup')">
+<img alt="XMAX x One Piece" loading="lazy" src="xmax onepiece.png"/>
+<h4>XMAX x One Piece</h4>
+</div>
+<div class="bike fade-in" onclick="showSpecs('nmax-popup')">
+<img alt="NMAX x Sukuna" loading="lazy" src="nmax sukuna.png"/>
+<h4>NMAX x Sukuna</h4>
+</div>
+<div class="bike fade-in" onclick="showSpecs('aerox-popup')">
+<img alt="AEROX x Kurama" loading="lazy" src="aerox kurama.png"/>
+<h4>AEROX x Kurama</h4>
+</div>
+<div class="bike fade-in" onclick="showSpecs('lexi-popup')">
+<img alt="LEXI x Super Saiyan" loading="lazy" src="lexi ssj.png"/>
+<h4>LEXI x Super Saiyan</h4>
+</div>
+</section>
+<section class="contact fade-in" id="contact">
+<h2>Contact Us</h2>
+<form aria-label="Contact Form">
+<label for="name">Your Name</label>
+<input id="name" name="name" placeholder="Your Name" required="" type="text"/>
+<label for="email">Your Email</label>
+<input id="email" name="email" placeholder="Your Email" required="" type="email"/>
+<label for="message">Your Message</label>
+<textarea id="message" name="message" placeholder="Your Message" required="" rows="4"></textarea>
+<button type="submit">Send</button>
+</form>
+</section>
+<footer class="fade-in">
+        © 2025 Yamaha Motor Co., Ltd.
     </footer>
-
-    <script>
-        function showSpecs(modalId) {
-            document.getElementById('overlay').style.display = 'block';
-            document.querySelectorAll('.spec-modal').forEach(modal => modal.style.display = 'none');
-            document.getElementById(modalId).style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('overlay').style.display = 'none';
-            document.querySelectorAll('.spec-modal').forEach(modal => modal.style.display = 'none');
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const faders = document.querySelectorAll('.fade-in');
-
-            const appearOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                });
-            }, appearOptions);
-
-            faders.forEach(fader => {
-                appearOnScroll.observe(fader);
-            });
+<script>
+function showSpecs(modalId) {
+    document.getElementById('overlay').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    document.querySelectorAll('.spec-modal').forEach(modal => {
+        modal.style.display = 'none';
+        modal.classList.remove('show');
+    });
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'block';
+    requestAnimationFrame(() => modal.classList.add('show'));
+}
+function closeModal() {
+    document.getElementById('overlay').style.display = 'none';
+    document.body.style.overflow = '';
+    document.querySelectorAll('.spec-modal').forEach(modal => {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+    });
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
         });
-    </script>
-</body>
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+    document.getElementById('overlay').addEventListener('click', closeModal);
+});
+
+document.querySelectorAll('.buy-now button').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const popup = document.getElementById('buyPopup');
+        popup.innerHTML = `
+            <h3>Thank you for choosing Yamaha!</h3>
+            <p>Our team will contact you shortly to complete your purchase.</p>
+            <button onclick="document.getElementById('buyPopup').classList.remove('show')">Close</button>
+        `;
+        popup.classList.add('show');
+    });
+});
+
+document.querySelectorAll('.buy-now button').forEach((btn) => {
+    btn.addEventListener('click', function () {
+        const parent = btn.closest('.buy-now');
+        const selectedPlan = parent.querySelector('select').value;
+        const popup = document.getElementById('buyPopup');
+        popup.classList.add('show');
+        document.getElementById('buyerPlan').value = selectedPlan;
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('buyForm');
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('buyerName').value;
+            const email = document.getElementById('buyerEmail').value;
+            alert(`Thank you, ${name}! We will contact you at ${email}.`);
+            document.getElementById('buyPopup').classList.remove('show');
+            form.reset();
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('buyForm');
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('buyerName').value;
+            const email = document.getElementById('buyerEmail').value;
+            const phone = document.getElementById('buyerPhone').value;
+            const address = document.getElementById('buyerAddress').value;
+            const plan = document.getElementById('buyerPlan').value;
+            alert(`Thank you, ${name}!
+We will contact you at ${email} or ${phone}.
+Shipping to: ${address}
+Selected Plan: ${plan}`);
+            document.getElementById('buyPopup').classList.remove('show');
+            form.reset();
+        });
+    }
+});
+</script>
+<div class="buy-popup" id="buyPopup">
+<h3>Complete Your Purchase</h3>
+<p>Please enter your details below:</p>
+<form id="buyForm">
+<label for="buyerName">Name:</label><br/>
+<input id="buyerName" name="buyerName" required="" type="text"/><br/><br/>
+<label for="buyerAddress">Address:</label><br/>
+<input id="buyerAddress" name="buyerAddress" required="" type="text"/><br/><br/>
+<label for="buyerPhone">Phone Number:</label><br/>
+<input id="buyerPhone" name="buyerPhone" required="" type="tel"/><br/><br/>
+<label for="buyerEmail">Email:</label><br/>
+<input id="buyerEmail" name="buyerEmail" required="" type="email"/><br/><br/>
+<label for="buyerPlan">Selected Plan:</label><br/>
+<input id="buyerPlan" name="buyerPlan" readonly="" type="text"/><br/><br/>
+<button type="submit">Submit</button>
+<button onclick="document.getElementById('buyPopup').classList.remove('show')" type="button">Cancel</button>
+</form>
+</div></body>
 </html>

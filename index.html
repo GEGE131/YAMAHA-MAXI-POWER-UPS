@@ -64,15 +64,25 @@ nav ul li a {
 nav ul li a:hover {
     color: #fff;
 }
+
+
+
 header {
-            text-align: center;
-            padding: 2rem;
-            background: #111;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            border-bottom: 3px solid var(--accent-color);
-            margin-top: 70px;
-        }
+    text-align: center;
+    padding: 2rem;
+    background: #111;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    border-bottom: 3px solid var(--accent-color);
+    margin-top: 70px;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-shadow: 0 0 8px var(--accent-color), 0 0 15px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+    animation: glowPulse 2s infinite ease-in-out;
+}
+
+
+
 
         .introduction {
             padding: 2rem;
@@ -81,7 +91,9 @@ header {
             line-height: 1.6;
             max-width: 900px;
             margin: auto;
-        }
+        
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    transition: opacity 1.2s ease, transform 1.2s ease;}
 
             .introduction h3 {
                 color: black;
@@ -245,7 +257,7 @@ header {
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.6s ease-out;
+            transition: opacity 1.2s ease, transform 1.2s ease;
         }
 
             .fade-in.visible {
@@ -300,7 +312,7 @@ header {
 #splash-screen img {
     width: 250px;
     height: auto;
-    animation: zoomIn 1s ease;
+    animation: zoomIn 1.2s ease forwards;
 }
 
 @keyframes fadeOutSplash {
@@ -310,11 +322,22 @@ header {
     }
 }
 
+
 @keyframes zoomIn {
     0% {
-        transform: scale(0.2);
+        transform: scale(0.6);
         opacity: 0;
     }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
     100% {
         transform: scale(1.2);
         opacity: 1;
@@ -367,9 +390,25 @@ nav.hide-on-scroll {
         margin-bottom: 1rem;
     }
 
-    header {
-        font-size: 1.5rem;
-    }
+    
+
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background: #111;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    border-bottom: 3px solid var(--accent-color);
+    margin-top: 70px;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-shadow: 0 0 8px var(--accent-color), 0 0 15px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+    animation: glowPulse 2s infinite ease-in-out;
+}
+
+
+
 
     .gallery {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -406,9 +445,25 @@ nav.hide-on-scroll {
         width: 90%;
     }
 
-    header {
-        padding: 1rem;
-    }
+    
+
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background: #111;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    border-bottom: 3px solid var(--accent-color);
+    margin-top: 70px;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-shadow: 0 0 8px var(--accent-color), 0 0 15px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+    animation: glowPulse 2s infinite ease-in-out;
+}
+
+
+
 
     .bike {
         padding: 0.5rem;
@@ -457,11 +512,7 @@ body {
 
 
 /* Themed select dropdowns for modals */
-.plan-select {
 
-.plan-select {
-  transition: all 0.3s ease-in-out;
-}
 
   background-color: #000;
   color: white;
@@ -501,11 +552,7 @@ body {
 
 
 /* Animate select dropdowns */
-.plan-select {
 
-.plan-select {
-  transition: all 0.3s ease-in-out;
-}
 
   background-color: #000;
   color: white;
@@ -550,6 +597,61 @@ body {
   z-index: 1002;
 }
 
+
+50% {
+        text-shadow: 0 0 12px var(--accent-color), 0 0 25px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 8px var(--accent-color), 0 0 15px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Themed Hover Glows */
+.bike[data-theme="rengoku"]:hover {
+    box-shadow: 0 0 25px #ff6f00, 0 0 50px rgba(255, 87, 34, 0.5);
+}
+.bike[data-theme="sukuna"]:hover {
+    box-shadow: 0 0 25px #990000, 0 0 50px rgba(153, 0, 0, 0.6);
+}
+.bike[data-theme="onepiece"]:hover {
+    box-shadow: 0 0 25px #0074D9, 0 0 50px rgba(0, 116, 217, 0.5);
+}
+.bike[data-theme="kurama"]:hover {
+    box-shadow: 0 0 25px #f39c12, 0 0 50px rgba(243, 156, 18, 0.5);
+}
+.bike[data-theme="ssj"]:hover {
+    box-shadow: 0 0 25px #f1c40f, 0 0 50px rgba(241, 196, 15, 0.6), 0 0 70px #3498db;
+}
+
+/* Animated aura effects */
+50% { box-shadow: 0 0 30px var(--glow-color); }
+  100% { box-shadow: 0 0 20px transparent; }
+}
+
+.bike[data-theme="rengoku"]:hover {
+  --glow-color: #ff6f00;
+  animation: auraFlicker 1.5s infinite;
+}
+
+.bike[data-theme="sukuna"]:hover {
+  --glow-color: #990000;
+  animation: auraFlicker 1.5s infinite;
+}
+
+.bike[data-theme="onepiece"]:hover {
+  --glow-color: #0074D9;
+  animation: auraFlicker 1.5s infinite;
+}
+
+.bike[data-theme="kurama"]:hover {
+  --glow-color: #f39c12;
+  animation: auraFlicker 1.5s infinite;
+}
+
+.bike[data-theme="ssj"]:hover {
+  --glow-color: #f1c40f;
+  animation: auraFlicker 1.5s infinite;
+}
 </style>
 <meta content="Yamaha scooters, TMAX Rengoku, NMAX Sukuna, Aerox Kurama, XMAX One Piece, Lexi Super Saiyan, anime-themed motorbikes, custom Yamaha Philippines, Yamaha MAXI power-ups" name="keywords"/>
 <!-- Structured Data for SEO -->
@@ -834,9 +936,7 @@ body {
 <button type="submit">Send</button>
 </form>
 </section>
-<footer class="fade-in">
-        © 2025 Yamaha Motor Co., Ltd.
-    </footer>
+<footer class="fade-in" style="color:white;">© <span id="year"></span> Yamaha Motor Co., Ltd.</footer>
 <script>
 function showSpecs(modalId) {
     document.getElementById('overlay').style.display = 'block';
@@ -973,8 +1073,6 @@ document.querySelectorAll('.plan-select').forEach(select => {
   });
 });
 </script>
-
-
 <script>
 document.querySelectorAll('.plan-select').forEach(select => {
   select.addEventListener('change', function () {
@@ -1044,5 +1142,23 @@ document.querySelectorAll('.promo-code').forEach(input => {
   });
 });
 </script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<audio id="hoverSound" preload="auto">
+  <source src="hover-sound.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+document.querySelectorAll('.bike').forEach(bike => {
+  bike.addEventListener('mouseenter', () => {
+    const sound = document.getElementById('hoverSound');
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play();
+    }
+  });
+});
+</script>
+
 </body>
 </html>

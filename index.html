@@ -4,9 +4,87 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>YAMAHA MAXI POWER-UPS</title><meta content="Customized Yamaha MAXI scooters with anime themes like Demon Slayer, One Piece, Naruto, and more." name="description"/><meta content="YAMAHA MAXI POWER-UPS" property="og:title"/><meta content="Experience anime meets horsepower with these powerful Yamaha scooter upgrades." property="og:description"/><meta content="preview.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<title>
+   YAMAHA MAXI POWER-UPS
+  </title>
+<meta content="Customized Yamaha MAXI scooters with anime themes like Demon Slayer, One Piece, Naruto, and more." name="description"/>
+<meta content="YAMAHA MAXI POWER-UPS" property="og:title"/>
+<meta content="Experience anime meets horsepower with these powerful Yamaha scooter upgrades." property="og:description"/>
+<meta content="preview.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&amp;display=swap" rel="stylesheet"/>
 <style>
+   /* Themed modal glow and title color */
+.spec-modal[data-theme="rengoku"] {
+    box-shadow: 0 0 30px #ff6f00, 0 0 60px rgba(255, 87, 34, 0.5);
+}
+.spec-modal[data-theme="rengoku"] h3 {
+    color: #ff6f00;
+}
+
+.spec-modal[data-theme="sukuna"] {
+    box-shadow: 0 0 30px #990000, 0 0 60px rgba(153, 0, 0, 0.6);
+}
+.spec-modal[data-theme="sukuna"] h3 {
+    color: #990000;
+}
+
+.spec-modal[data-theme="onepiece"] {
+    box-shadow: 0 0 30px #0074D9, 0 0 60px rgba(0, 116, 217, 0.5);
+}
+.spec-modal[data-theme="onepiece"] h3 {
+    color: #0074D9;
+}
+
+.spec-modal[data-theme="kurama"] {
+    box-shadow: 0 0 30px #f39c12, 0 0 60px rgba(243, 156, 18, 0.5);
+}
+.spec-modal[data-theme="kurama"] h3 {
+    color: #f39c12;
+}
+
+.spec-modal[data-theme="ssj"] {
+    box-shadow: 0 0 30px #f1c40f, 0 0 60px #3498db;
+}
+.spec-modal[data-theme="ssj"] h3 {
+    color: #f1c40f;
+}
+
+
+@keyframes auraFlickerPopup {
+  0% { box-shadow: 0 0 20px transparent; }
+  50% { box-shadow: 0 0 30px var(--accent-color); }
+  100% { box-shadow: 0 0 20px transparent; }
+}
+
+
+.buy-popup {
+    display: none;
+    position: fixed;
+    z-index: 20000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111;
+    color: white;
+    padding: 2rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    box-shadow: 0 0 25px var(--accent-color), 0 0 50px rgba(255, 0, 0, 0.4);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    animation: auraFlickerPopup 1.5s infinite ease-in-out;
+}
+.buy-popup.show {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+
         :root {
             --accent-color: #9b111e;
         }
@@ -652,293 +730,929 @@ body {
   --glow-color: #f1c40f;
   animation: auraFlicker 1.5s infinite;
 }
+
+.plan-select {
+  background: #000;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px var(--accent-color), 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.plan-select:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px var(--accent-color), 0 0 25px rgba(255, 0, 0, 0.5);
+}
+
+.plan-select option {
+  background-color: #111;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+
+/* Per-theme option color override inside select (best effort styling) */
+.theme-rengoku option {
+  background: #331100;
+  color: #ff6f00;
+}
+
+.theme-onepiece option {
+  background: #001f3f;
+  color: #0074D9;
+}
+
+.theme-sukuna option {
+  background: #220000;
+  color: #ff4444;
+}
+
+.theme-kurama option {
+  background: #332000;
+  color: #f39c12;
+}
+
+.theme-ssj option {
+  background: #1a1a00;
+  color: #f1c40f;
+}
+
+/* Enhance appearance of the dropdown on hover/select */
+.plan-select:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.plan-select option:checked {
+  background-color: #222;
+  color: var(--accent-color);
+}
+
+
+
+/* ... existing styles ... */
+
+/* Themed glow on dropdown hover/focus */
+.plan-select.theme-rengoku:hover,
+.plan-select.theme-rengoku:focus {
+  box-shadow: 0 0 20px #ff6f00, 0 0 35px rgba(255, 111, 0, 0.5);
+}
+
+.plan-select.theme-sukuna:hover,
+.plan-select.theme-sukuna:focus {
+  box-shadow: 0 0 20px #990000, 0 0 35px rgba(153, 0, 0, 0.5);
+}
+
+.plan-select.theme-onepiece:hover,
+.plan-select.theme-onepiece:focus {
+  box-shadow: 0 0 20px #0074D9, 0 0 35px rgba(0, 116, 217, 0.5);
+}
+
+.plan-select.theme-kurama:hover,
+.plan-select.theme-kurama:focus {
+  box-shadow: 0 0 20px #f39c12, 0 0 35px rgba(243, 156, 18, 0.5);
+}
+
+.plan-select.theme-ssj:hover,
+.plan-select.theme-ssj:focus {
+  box-shadow: 0 0 20px #f1c40f, 0 0 35px rgba(241, 196, 15, 0.5), 0 0 50px #3498db;
+}
+  
+
+
+/* Themed glow on dropdown hover/focus */
+.plan-select.theme-rengoku:hover,
+.plan-select.theme-rengoku:focus {
+  box-shadow: 0 0 20px #ff6f00, 0 0 35px rgba(255, 111, 0, 0.5);
+}
+
+.plan-select.theme-sukuna:hover,
+.plan-select.theme-sukuna:focus {
+  box-shadow: 0 0 20px #990000, 0 0 35px rgba(153, 0, 0, 0.5);
+}
+
+.plan-select.theme-onepiece:hover,
+.plan-select.theme-onepiece:focus {
+  box-shadow: 0 0 20px #0074D9, 0 0 35px rgba(0, 116, 217, 0.5);
+}
+
+.plan-select.theme-kurama:hover,
+.plan-select.theme-kurama:focus {
+  box-shadow: 0 0 20px #f39c12, 0 0 35px rgba(243, 156, 18, 0.5);
+}
+
+.plan-select.theme-ssj:hover,
+.plan-select.theme-ssj:focus {
+  box-shadow: 0 0 20px #f1c40f, 0 0 35px rgba(241, 196, 15, 0.5), 0 0 50px #3498db;
+}
 </style>
 <meta content="Yamaha scooters, TMAX Rengoku, NMAX Sukuna, Aerox Kurama, XMAX One Piece, Lexi Super Saiyan, anime-themed motorbikes, custom Yamaha Philippines, Yamaha MAXI power-ups" name="keywords"/>
 <!-- Structured Data for SEO -->
 <script type="application/ld+json">
-{
+   {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "YAMAHA MAXI POWER-UPS",
   "url": "https://yourdomain.com"
 }
-</script>
+  </script>
 <script type="application/ld+json">
-{
+   {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Yamaha Motor Co., Ltd.",
   "url": "https://global.yamaha-motor.com",
   "logo": "https://yourdomain.com/yamaha-logo.png"
 }
-</script>
+  </script>
 </head>
-<body><div class="overlay" id="overlay"></div><div id="splash-screen"><img alt="Yamaha Logo" src="yamaha-logo.png"/></div>
+<body>
+<div class="overlay" id="overlay">
+</div>
+<div id="splash-screen">
+<img alt="Yamaha Logo" src="yamaha-logo.png"/>
+</div>
 <!-- ================== YAMAHA XMAX x Demon Slayer ================== -->
-<div class="spec-modal" data-price="829000" id="specModal">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
+<div class="spec-modal" data-price="829000" data-theme="rengoku" id="specModal">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">
+    ×
+   </span>
 <div class="spec-modal-content">
 <img alt="Bike Image" loading="lazy" src="tmax rengoku.png"/>
 <div class="spec-text">
-<h3>YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku (₱ 829,000.00)</h3>
-<p><strong>SPECIFICATIONS</strong></p>
+<h3>
+      YAMAHA TMAX x Demon Slayer: Flame Hashira Kyōjurō Rengoku (₱ 829,000.00)
+     </h3>
+<p>
+<strong>
+       SPECIFICATIONS
+      </strong>
+</p>
 <ul>
-<li>Mileage (City): 46.5–50 kmpl</li>
-<li>Displacement: 155 cc</li>
-<li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve VVA</li>
-<li>No. of Cylinders: 1</li>
-<li>Max Power: 15.5 PS @ 8000 rpm</li>
-<li>Max Torque: 14 Nm @ 6500 rpm</li>
-<li>Front Brake: 230 mm Hydraulic Disc</li>
-<li>Rear Brake: 130 mm Drum / Optional Disc Variant</li>
-<li>Fuel Capacity: 5.5 L</li>
-<li>Fuel Type: Hydro fuel</li>
+<li>
+       Mileage (City): 46.5–50 kmpl
+      </li>
+<li>
+       Displacement: 155 cc
+      </li>
+<li>
+       Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve VVA
+      </li>
+<li>
+       No. of Cylinders: 1
+      </li>
+<li>
+       Max Power: 15.5 PS @ 8000 rpm
+      </li>
+<li>
+       Max Torque: 14 Nm @ 6500 rpm
+      </li>
+<li>
+       Front Brake: 230 mm Hydraulic Disc
+      </li>
+<li>
+       Rear Brake: 130 mm Drum / Optional Disc Variant
+      </li>
+<li>
+       Fuel Capacity: 5.5 L
+      </li>
+<li>
+       Fuel Type: Hydro fuel
+      </li>
 </ul>
-<p><strong>TECH &amp; FEATURES</strong></p>
+<p>
+<strong>
+       TECH &amp; FEATURES
+      </strong>
+</p>
 <ul>
-<li>ABS: Single Channel ABS (Front)</li>
-<li>Seat Opening Switch: Yes (Integrated Keyless Start + Remote Unlock)</li>
-<li>External Fuel Filling: Yes (Front fuel port – no need to lift seat)</li>
-<li>Mobile Connectivity: Yamaha Y-Connect App (Bluetooth-enabled)</li>
-<li>Shutter Lock: Yes (Key Shutter with Magnetic Lock)</li>
-<li>Clock: Yes (Digital)</li>
-<li>Speedometer: Fully Digital LCD</li>
-<li>Odometer: Digital</li>
-<li>Tripmeter: Digital (Trip A / Trip B / Fuel Economy Mode)</li>
-<li>Tachometer: Digital Bar-Type</li>
+<li>
+       ABS: Single Channel ABS (Front)
+      </li>
+<li>
+       Seat Opening Switch: Yes (Integrated Keyless Start + Remote Unlock)
+      </li>
+<li>
+       External Fuel Filling: Yes (Front fuel port – no need to lift seat)
+      </li>
+<li>
+       Mobile Connectivity: Yamaha Y-Connect App (Bluetooth-enabled)
+      </li>
+<li>
+       Shutter Lock: Yes (Key Shutter with Magnetic Lock)
+      </li>
+<li>
+       Clock: Yes (Digital)
+      </li>
+<li>
+       Speedometer: Fully Digital LCD
+      </li>
+<li>
+       Odometer: Digital
+      </li>
+<li>
+       Tripmeter: Digital (Trip A / Trip B / Fuel Economy Mode)
+      </li>
+<li>
+       Tachometer: Digital Bar-Type
+      </li>
 </ul>
-<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<p>
+<strong>
+       SPECIAL CUSTOM FEATURES
+      </strong>
+</p>
 <ul>
-<li>Flame Tip LED Design</li>
-<li>Rear LEDs in red-orange gradient for heat-trail effect</li>
-<li>Enhanced Sound Profile: Street Legal, deep sporty tone</li>
-<li>Smart Ride Dashboard via Yamaha Y-Connect (Street/Flame/Sport themes)</li>
+<li>
+       Flame Tip LED Design
+      </li>
+<li>
+       Rear LEDs in red-orange gradient for heat-trail effect
+      </li>
+<li>
+       Enhanced Sound Profile: Street Legal, deep sporty tone
+      </li>
+<li>
+       Smart Ride Dashboard via Yamaha Y-Connect (Street/Flame/Sport themes)
+      </li>
 </ul>
-<div class="buy-now"><fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;"><legend style="color: white;">💳 Select Your Payment Option</legend><label for="plan-select">Payment Plan:</label><select class="plan-select theme-rengoku" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 829,000.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 414,500.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan - ₱ 69,083.00 / month</option></select><div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);"></div><label for="promoCode" style="margin-top: 1rem; color: white; display: block;">Promo Code:</label><input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/></fieldset><button style="margin-top: 1rem;">Buy Now</button></div></div>
+<div class="buy-now">
+<fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;">
+<legend style="color: white;">
+        💳 Select Your Payment Option
+       </legend>
+<label for="plan-select">
+        Payment Plan:
+       </label>
+<select class="plan-select theme-rengoku" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;">
+<option value="Full Payment">
+         💰 Full Payment - ₱ 829,000.00
+        </option>
+<option value="Yearly Plan (2 years)">
+         📆 Yearly Plan (2 yrs) - ₱ 414,500.00 / year
+        </option>
+<option value="Monthly Plan (12 months)">
+         🗓 Monthly Plan - ₱ 69,083.00 / month
+        </option>
+</select>
+<div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);">
+</div>
+<label for="promoCode" style="margin-top: 1rem; color: white; display: block;">
+        Promo Code:
+       </label>
+<input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/>
+</fieldset>
+<button style="margin-top: 1rem;">
+       Buy Now
+      </button>
+</div>
+</div>
 </div>
 </div>
 <!-- ================== YAMAHA XMAX x One Piece ================== -->
-<div class="spec-modal" data-price="361000" id="xmax-popup">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
+<div class="spec-modal" data-price="361000" data-theme="onepiece" id="xmax-popup">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">
+    ×
+   </span>
 <div class="spec-modal-content">
 <img alt="XMAX One Piece" loading="lazy" src="xmax onepiece.png"/>
 <div class="spec-text">
-<h3>YAMAHA XMAX x One Piece: The Thousand Sunny (₱ 361,000.00)</h3>
-<p><strong>SPECIFICATIONS</strong></p>
+<h3>
+      YAMAHA XMAX x One Piece: The Thousand Sunny (₱ 361,000.00)
+     </h3>
+<p>
+<strong>
+       SPECIFICATIONS
+      </strong>
+</p>
 <ul>
-<li>Mileage (City): 45–48 kmpl</li>
-<li>Displacement: 155 cc</li>
-<li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
-<li>No. of Cylinders: 1</li>
-<li>Max Power: 15.4 PS @ 8000 rpm</li>
-<li>Max Torque: 13.9 Nm @ 6500 rpm</li>
-<li>Front Brake: 230 mm Disc (Hydraulic, ABS)</li>
-<li>Rear Brake: 130 mm Drum / Optional rear disc upgrade</li>
-<li>Fuel Capacity: 5.5 L</li>
-<li>Fuel Type: Hydro fuel</li>
+<li>
+       Mileage (City): 45–48 kmpl
+      </li>
+<li>
+       Displacement: 155 cc
+      </li>
+<li>
+       Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA
+      </li>
+<li>
+       No. of Cylinders: 1
+      </li>
+<li>
+       Max Power: 15.4 PS @ 8000 rpm
+      </li>
+<li>
+       Max Torque: 13.9 Nm @ 6500 rpm
+      </li>
+<li>
+       Front Brake: 230 mm Disc (Hydraulic, ABS)
+      </li>
+<li>
+       Rear Brake: 130 mm Drum / Optional rear disc upgrade
+      </li>
+<li>
+       Fuel Capacity: 5.5 L
+      </li>
+<li>
+       Fuel Type: Hydro fuel
+      </li>
 </ul>
-<p><strong>TECH &amp; FEATURES</strong></p>
+<p>
+<strong>
+       TECH &amp; FEATURES
+      </strong>
+</p>
 <ul>
-<li>ABS: Single-Channel ABS (Front)</li>
-<li>Seat Opening Switch: Yes (Remote access under seat)</li>
-<li>External Fuel Filling: Yes (Smart tank access near handlebar)</li>
-<li>Mobile Connectivity: Yamaha Y-Connect App – monitor fuel, call alerts, maintenance</li>
-<li>Shutter Lock: Yes (Magnetic key shutter lock)</li>
-<li>Clock: Digital</li>
-<li>Speedometer: Fully Digital LCD</li>
-<li>Odometer: Digital</li>
-<li>Tripmeter: Trip A / Trip B / Real-time Fuel Monitoring</li>
-<li>Tachometer: Bar-style digital tachometer</li>
+<li>
+       ABS: Single-Channel ABS (Front)
+      </li>
+<li>
+       Seat Opening Switch: Yes (Remote access under seat)
+      </li>
+<li>
+       External Fuel Filling: Yes (Smart tank access near handlebar)
+      </li>
+<li>
+       Mobile Connectivity: Yamaha Y-Connect App – monitor fuel, call alerts, maintenance
+      </li>
+<li>
+       Shutter Lock: Yes (Magnetic key shutter lock)
+      </li>
+<li>
+       Clock: Digital
+      </li>
+<li>
+       Speedometer: Fully Digital LCD
+      </li>
+<li>
+       Odometer: Digital
+      </li>
+<li>
+       Tripmeter: Trip A / Trip B / Real-time Fuel Monitoring
+      </li>
+<li>
+       Tachometer: Bar-style digital tachometer
+      </li>
 </ul>
-<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<p>
+<strong>
+       SPECIAL CUSTOM FEATURES
+      </strong>
+</p>
 <ul>
-<li>Anime-Inspired Full Body Wrap</li>
-<li>Dual-Texture Adventure Seat</li>
-<li>Enhanced Street Sound Muffler</li>
-<li>Anti-theft alarm system (motion sensor + remote lock)</li>
-<li>Smart key compatibility (on selected trims)</li>
+<li>
+       Anime-Inspired Full Body Wrap
+      </li>
+<li>
+       Dual-Texture Adventure Seat
+      </li>
+<li>
+       Enhanced Street Sound Muffler
+      </li>
+<li>
+       Anti-theft alarm system (motion sensor + remote lock)
+      </li>
+<li>
+       Smart key compatibility (on selected trims)
+      </li>
 </ul>
-<div class="buy-now"><fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;"><legend style="color: white;">💳 Select Your Payment Option</legend><label for="plan-select">Payment Plan:</label><select class="plan-select theme-onepiece" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 361,000.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 180,500.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan - ₱ 30,083.00 / month</option></select><div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);"></div><label for="promoCode" style="margin-top: 1rem; color: white; display: block;">Promo Code:</label><input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/></fieldset><button style="margin-top: 1rem;">Buy Now</button></div></div>
+<div class="buy-now">
+<fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;">
+<legend style="color: white;">
+        💳 Select Your Payment Option
+       </legend>
+<label for="plan-select">
+        Payment Plan:
+       </label>
+<select class="plan-select theme-onepiece" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;">
+<option value="Full Payment">
+         💰 Full Payment - ₱ 361,000.00
+        </option>
+<option value="Yearly Plan (2 years)">
+         📆 Yearly Plan (2 yrs) - ₱ 180,500.00 / year
+        </option>
+<option value="Monthly Plan (12 months)">
+         🗓 Monthly Plan - ₱ 30,083.00 / month
+        </option>
+</select>
+<div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);">
+</div>
+<label for="promoCode" style="margin-top: 1rem; color: white; display: block;">
+        Promo Code:
+       </label>
+<input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/>
+</fieldset>
+<button style="margin-top: 1rem;">
+       Buy Now
+      </button>
+</div>
+</div>
 </div>
 </div>
 <!-- ================== YAMAHA NMAX x Jujutsu Kaisen ================== -->
-<div class="spec-modal" data-price="205900" id="nmax-popup">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
+<div class="spec-modal" data-price="205900" data-theme="sukuna" id="nmax-popup">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">
+    ×
+   </span>
 <div class="spec-modal-content">
 <img alt="NMAX Jujutsu Kaisen" loading="lazy" src="nmax sukuna.png"/>
 <div class="spec-text">
-<h3>YAMAHA NMAX x Jujutsu Kaisen: Possessed Sukuna (₱ 205,900.00)</h3>
-<p><strong>SPECIFICATIONS</strong></p>
+<h3>
+      YAMAHA NMAX x Jujutsu Kaisen: Possessed Sukuna (₱ 205,900.00)
+     </h3>
+<p>
+<strong>
+       SPECIFICATIONS
+      </strong>
+</p>
 <ul>
-<li>Engine Displacement: 155 cc</li>
-<li>Engine Type: 4-stroke, Liquid-Cooled, SOHC, 4-Valve with VVA</li>
-<li>Max Power: 15.4 PS @ 8000 rpm</li>
-<li>Max Torque: 13.9 Nm @ 6500 rpm</li>
-<li>Mileage (City): 45–48 km/l</li>
-<li>Fuel Type: Hydro Fuel Compatible</li>
-<li>Fuel Tank: 5.5 L</li>
-<li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
-<li>Rear Brake: 130 mm Drum (optional rear disc)</li>
-<li>Tires: Tubeless “Cursed Grip” treads for urban dominance</li>
+<li>
+       Engine Displacement: 155 cc
+      </li>
+<li>
+       Engine Type: 4-stroke, Liquid-Cooled, SOHC, 4-Valve with VVA
+      </li>
+<li>
+       Max Power: 15.4 PS @ 8000 rpm
+      </li>
+<li>
+       Max Torque: 13.9 Nm @ 6500 rpm
+      </li>
+<li>
+       Mileage (City): 45–48 km/l
+      </li>
+<li>
+       Fuel Type: Hydro Fuel Compatible
+      </li>
+<li>
+       Fuel Tank: 5.5 L
+      </li>
+<li>
+       Front Brake: 230 mm Hydraulic Disc (ABS)
+      </li>
+<li>
+       Rear Brake: 130 mm Drum (optional rear disc)
+      </li>
+<li>
+       Tires: Tubeless “Cursed Grip” treads for urban dominance
+      </li>
 </ul>
-<p><strong>TECH &amp; FEATURES</strong></p>
+<p>
+<strong>
+       TECH &amp; FEATURES
+      </strong>
+</p>
 <ul>
-<li>ABS: Front Single-Channel ABS</li>
-<li>Lighting: Full LED package (Quad-eye front, fang DRL, rear tail LED)</li>
-<li>Smart Seat Access: Remote under-seat release</li>
-<li>Fuel Cap: External front-located</li>
-<li>Security: Magnetic shutter lock with cursed-seal cap design</li>
-<li>App Connectivity: Yamaha Y-Connect</li>
-<li>Digital Display Cluster: Full LCD with cursed-red glow theme</li>
-<li>Trip A/B, Real-time Consumption Monitor</li>
+<li>
+       ABS: Front Single-Channel ABS
+      </li>
+<li>
+       Lighting: Full LED package (Quad-eye front, fang DRL, rear tail LED)
+      </li>
+<li>
+       Smart Seat Access: Remote under-seat release
+      </li>
+<li>
+       Fuel Cap: External front-located
+      </li>
+<li>
+       Security: Magnetic shutter lock with cursed-seal cap design
+      </li>
+<li>
+       App Connectivity: Yamaha Y-Connect
+      </li>
+<li>
+       Digital Display Cluster: Full LCD with cursed-red glow theme
+      </li>
+<li>
+       Trip A/B, Real-time Consumption Monitor
+      </li>
 </ul>
-<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<p>
+<strong>
+       SPECIAL CUSTOM FEATURES
+      </strong>
+</p>
 <ul>
-<li>Cursed King Full-Body Wrap</li>
-<li>Cursed Grin Headlight Setup</li>
-<li>Throne of the Cursed Seat</li>
+<li>
+       Cursed King Full-Body Wrap
+      </li>
+<li>
+       Cursed Grin Headlight Setup
+      </li>
+<li>
+       Throne of the Cursed Seat
+      </li>
 </ul>
-<div class="buy-now"><fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;"><legend style="color: white;">💳 Select Your Payment Option</legend><label for="plan-select">Payment Plan:</label><select class="plan-select theme-sukuna" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 205,900.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 102,950.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan - ₱ 17,158.00 / month</option></select><div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);"></div><label for="promoCode" style="margin-top: 1rem; color: white; display: block;">Promo Code:</label><input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/></fieldset><button style="margin-top: 1rem;">Buy Now</button></div></div>
+<div class="buy-now">
+<fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;">
+<legend style="color: white;">
+        💳 Select Your Payment Option
+       </legend>
+<label for="plan-select">
+        Payment Plan:
+       </label>
+<select class="plan-select theme-sukuna" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;">
+<option value="Full Payment">
+         💰 Full Payment - ₱ 205,900.00
+        </option>
+<option value="Yearly Plan (2 years)">
+         📆 Yearly Plan (2 yrs) - ₱ 102,950.00 / year
+        </option>
+<option value="Monthly Plan (12 months)">
+         🗓 Monthly Plan - ₱ 17,158.00 / month
+        </option>
+</select>
+<div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);">
+</div>
+<label for="promoCode" style="margin-top: 1rem; color: white; display: block;">
+        Promo Code:
+       </label>
+<input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/>
+</fieldset>
+<button style="margin-top: 1rem;">
+       Buy Now
+      </button>
+</div>
+</div>
 </div>
 </div>
 <!-- ================== YAMAHA AEROX x Naruto Shippuden ================== -->
-<div class="spec-modal" data-price="195000" id="aerox-popup">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
+<div class="spec-modal" data-price="195000" data-theme="kurama" id="aerox-popup">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">
+    ×
+   </span>
 <div class="spec-modal-content">
 <img alt="AEROX Naruto" loading="lazy" src="aerox kurama.png"/>
 <div class="spec-text">
-<h3>YAMAHA AEROX x Naruto Shippuden: Nine-tailed Beast Kurama (₱ 195,000.00)</h3>
-<p><strong>SPECIFICATIONS</strong></p>
+<h3>
+      YAMAHA AEROX x Naruto Shippuden: Nine-tailed Beast Kurama (₱ 195,000.00)
+     </h3>
+<p>
+<strong>
+       SPECIFICATIONS
+      </strong>
+</p>
 <ul>
-<li>Displacement: 155 cc</li>
-<li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
-<li>No. of Cylinders: 1</li>
-<li>Max Power: 15.4 PS @ 8000 rpm</li>
-<li>Max Torque: 13.9 Nm @ 6500 rpm</li>
-<li>Mileage (City): 45–48 km/l</li>
-<li>Fuel Type: Hydro Fuel Compatible</li>
-<li>Fuel Tank Capacity: 5.5 L</li>
-<li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
-<li>Rear Brake: 130 mm Drum / Optional Disc Upgrade</li>
-<li>Tires: Tubeless, Sport Tread</li>
-<p><strong>TECH &amp; FEATURES</strong></p>
+<li>
+       Displacement: 155 cc
+      </li>
+<li>
+       Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA
+      </li>
+<li>
+       No. of Cylinders: 1
+      </li>
+<li>
+       Max Power: 15.4 PS @ 8000 rpm
+      </li>
+<li>
+       Max Torque: 13.9 Nm @ 6500 rpm
+      </li>
+<li>
+       Mileage (City): 45–48 km/l
+      </li>
+<li>
+       Fuel Type: Hydro Fuel Compatible
+      </li>
+<li>
+       Fuel Tank Capacity: 5.5 L
+      </li>
+<li>
+       Front Brake: 230 mm Hydraulic Disc (ABS)
+      </li>
+<li>
+       Rear Brake: 130 mm Drum / Optional Disc Upgrade
+      </li>
+<li>
+       Tires: Tubeless, Sport Tread
+      </li>
+<p>
+<strong>
+        TECH &amp; FEATURES
+       </strong>
+</p>
 <ul>
-<li>ABS: Front Single-Channel ABS</li>
-<li>LED Lighting: Red projector “chakra eyes” with snout-mounted fog light</li>
-<li>Turn Signals: Animated LED pulse (fox-ear mirrors)</li>
-<li>Seat Opening Switch: Yes</li>
-<li>Fuel Cap Access: External front smart cap</li>
-<li>Smart App: Yamaha Y-Connect</li>
-<li>Security: Magnetic shutter key lock</li>
-<li>Digital Cluster: Clock, Speedometer, Odometer, Trip A/B, Fuel Display</li>
+<li>
+        ABS: Front Single-Channel ABS
+       </li>
+<li>
+        LED Lighting: Red projector “chakra eyes” with snout-mounted fog light
+       </li>
+<li>
+        Turn Signals: Animated LED pulse (fox-ear mirrors)
+       </li>
+<li>
+        Seat Opening Switch: Yes
+       </li>
+<li>
+        Fuel Cap Access: External front smart cap
+       </li>
+<li>
+        Smart App: Yamaha Y-Connect
+       </li>
+<li>
+        Security: Magnetic shutter key lock
+       </li>
+<li>
+        Digital Cluster: Clock, Speedometer, Odometer, Trip A/B, Fuel Display
+       </li>
 </ul>
-<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<p>
+<strong>
+        SPECIAL CUSTOM FEATURES
+       </strong>
+</p>
 <ul>
-<li>Kurama-Inspired Full Body Shell</li>
-<li>Functional Fox Ear Mirrors</li>
-<li>Black Ninja Comfort Seat</li>
+<li>
+        Kurama-Inspired Full Body Shell
+       </li>
+<li>
+        Functional Fox Ear Mirrors
+       </li>
+<li>
+        Black Ninja Comfort Seat
+       </li>
 </ul>
-</ul><div class="buy-now"><fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;"><legend style="color: white;">💳 Select Your Payment Option</legend><label for="plan-select">Payment Plan:</label><select class="plan-select theme-kurama" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 195,000.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 97,500.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan - ₱ 16,250.00 / month</option></select><div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);"></div><label for="promoCode" style="margin-top: 1rem; color: white; display: block;">Promo Code:</label><input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/></fieldset><button style="margin-top: 1rem;">Buy Now</button></div></div>
+</ul>
+<div class="buy-now">
+<fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;">
+<legend style="color: white;">
+        💳 Select Your Payment Option
+       </legend>
+<label for="plan-select">
+        Payment Plan:
+       </label>
+<select class="plan-select theme-kurama" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;">
+<option value="Full Payment">
+         💰 Full Payment - ₱ 195,000.00
+        </option>
+<option value="Yearly Plan (2 years)">
+         📆 Yearly Plan (2 yrs) - ₱ 97,500.00 / year
+        </option>
+<option value="Monthly Plan (12 months)">
+         🗓 Monthly Plan - ₱ 16,250.00 / month
+        </option>
+</select>
+<div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);">
+</div>
+<label for="promoCode" style="margin-top: 1rem; color: white; display: block;">
+        Promo Code:
+       </label>
+<input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/>
+</fieldset>
+<button style="margin-top: 1rem;">
+       Buy Now
+      </button>
+</div>
+</div>
 </div>
 </div>
 <!-- ================== YAMAHA LEXI x Dragon Ball Z ================== -->
-<div class="spec-modal" data-price="130400" id="lexi-popup">
-<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">×</span>
+<div class="spec-modal" data-price="130400" data-theme="ssj" id="lexi-popup">
+<span aria-label="Close modal" class="close-icon" onclick="closeModal()" role="button" tabindex="0">
+    ×
+   </span>
 <div class="spec-modal-content">
 <img alt="LEXI Dragon Ball Z" loading="lazy" src="lexi ssj.png"/>
 <div class="spec-text">
-<h3>YAMAHA LEXI x Dragon Ball Z: Super Saiyan Mode (₱ 130,400.00)</h3>
-<p><strong>SPECIFICATIONS</strong></p>
+<h3>
+      YAMAHA LEXI x Dragon Ball Z: Super Saiyan Mode (₱ 130,400.00)
+     </h3>
+<p>
+<strong>
+       SPECIFICATIONS
+      </strong>
+</p>
 <ul>
-<li>Displacement: 155 cc</li>
-<li>Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA</li>
-<li>No. of Cylinders: 1</li>
-<li>Max Power: 15.4 PS @ 8000 rpm</li>
-<li>Max Torque: 13.9 Nm @ 6500 rpm</li>
-<li>Mileage (City): 45–48 km/l</li>
-<li>Fuel Type: Hydro Fuel Compatible</li>
-<li>Fuel Tank Capacity: 5.5 L</li>
-<li>Front Brake: 230 mm Hydraulic Disc (ABS)</li>
-<li>Rear Brake: 130 mm Drum / Optional Disc Upgrade</li>
-<li>Tires: Tubeless, Sport Tread</li>
+<li>
+       Displacement: 155 cc
+      </li>
+<li>
+       Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA
+      </li>
+<li>
+       No. of Cylinders: 1
+      </li>
+<li>
+       Max Power: 15.4 PS @ 8000 rpm
+      </li>
+<li>
+       Max Torque: 13.9 Nm @ 6500 rpm
+      </li>
+<li>
+       Mileage (City): 45–48 km/l
+      </li>
+<li>
+       Fuel Type: Hydro Fuel Compatible
+      </li>
+<li>
+       Fuel Tank Capacity: 5.5 L
+      </li>
+<li>
+       Front Brake: 230 mm Hydraulic Disc (ABS)
+      </li>
+<li>
+       Rear Brake: 130 mm Drum / Optional Disc Upgrade
+      </li>
+<li>
+       Tires: Tubeless, Sport Tread
+      </li>
 </ul>
-<p><strong>TECH &amp; FEATURES</strong></p>
+<p>
+<strong>
+       TECH &amp; FEATURES
+      </strong>
+</p>
 <ul>
-<li>ABS: Front Single-Channel ABS</li>
-<li>Headlights: LED Projector with bright blue tint</li>
-<li>Seat Opening Switch: Yes</li>
-<li>Fuel Access: External front fuel cap</li>
-<li>Mobile App: Yamaha Y-Connect</li>
-<li>Anti-Theft: Magnetic shutter lock</li>
-<li>Dashboard: Fully Digital LCD Cluster (Clock, Speedo, Odo, Trip A/B, Fuel, Tachometer)</li>
+<li>
+       ABS: Front Single-Channel ABS
+      </li>
+<li>
+       Headlights: LED Projector with bright blue tint
+      </li>
+<li>
+       Seat Opening Switch: Yes
+      </li>
+<li>
+       Fuel Access: External front fuel cap
+      </li>
+<li>
+       Mobile App: Yamaha Y-Connect
+      </li>
+<li>
+       Anti-Theft: Magnetic shutter lock
+      </li>
+<li>
+       Dashboard: Fully Digital LCD Cluster (Clock, Speedo, Odo, Trip A/B, Fuel, Tachometer)
+      </li>
 </ul>
-<p><strong>SPECIAL CUSTOM FEATURES</strong></p>
+<p>
+<strong>
+       SPECIAL CUSTOM FEATURES
+      </strong>
+</p>
 <ul>
-<li>Super Saiyan-Themed Custom Body Kit</li>
-<li>Custom Sport Saddle</li>
-<li>Performance-Grade Exhaust</li>
+<li>
+       Super Saiyan-Themed Custom Body Kit
+      </li>
+<li>
+       Custom Sport Saddle
+      </li>
+<li>
+       Performance-Grade Exhaust
+      </li>
 </ul>
-<div class="buy-now"><fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;"><legend style="color: white;">💳 Select Your Payment Option</legend><label for="plan-select">Payment Plan:</label><select class="plan-select theme-ssj" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;"><option value="Full Payment">💰 Full Payment - ₱ 130,400.00</option><option value="Yearly Plan (2 years)">📆 Yearly Plan (2 yrs) - ₱ 65,200.00 / year</option><option value="Monthly Plan (12 months)">🗓 Monthly Plan - ₱ 10,866.00 / month</option></select><div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);"></div><label for="promoCode" style="margin-top: 1rem; color: white; display: block;">Promo Code:</label><input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/></fieldset><button style="margin-top: 1rem;">Buy Now</button></div></div>
+<div class="buy-now">
+<fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;">
+<legend style="color: white;">
+        💳 Select Your Payment Option
+       </legend>
+<label for="plan-select">
+        Payment Plan:
+       </label>
+<select class="plan-select theme-ssj" id="plan-select" style="margin-top: 0.5rem; padding: 0.5rem; border-radius: 5px;">
+<option value="Full Payment">
+         💰 Full Payment - ₱ 130,400.00
+        </option>
+<option value="Yearly Plan (2 years)">
+         📆 Yearly Plan (2 yrs) - ₱ 65,200.00 / year
+        </option>
+<option value="Monthly Plan (12 months)">
+         🗓 Monthly Plan - ₱ 10,866.00 / month
+        </option>
+</select>
+<div class="price-preview" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent-color);">
+</div>
+<label for="promoCode" style="margin-top: 1rem; color: white; display: block;">
+        Promo Code:
+       </label>
+<input class="promo-code" placeholder="Enter code (e.g. SAVE10)" style="width: 100%; padding: 0.4rem; border-radius: 5px; border: 1px solid #444; background: #000; color: white;" type="text"/>
+</fieldset>
+<button style="margin-top: 1rem;">
+       Buy Now
+      </button>
+</div>
+</div>
 </div>
 </div>
 <nav class="fade-in">
 <img alt="Yamaha Logo" loading="lazy" src="yamaha-logo.png"/>
 <ul>
-<li><a href="#">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#motors">Motors</a></li>
-<li><a href="#contact">Contacts</a></li>
+<li>
+<a href="#">
+      Home
+     </a>
+</li>
+<li>
+<a href="#about">
+      About
+     </a>
+</li>
+<li>
+<a href="#motors">
+      Motors
+     </a>
+</li>
+<li>
+<a href="#contact">
+      Contacts
+     </a>
+</li>
 </ul>
 </nav>
 <header class="fade-in">
-        YAMAHA MAXI POWER-UPS
-    </header>
+   YAMAHA MAXI POWER-UPS
+  </header>
 <section class="introduction fade-in" id="about">
-<h2>Welcome to Yamaha Maxi Power-Ups</h2>
-<h3>Exploring the Legacy of Yamaha</h3>
-<p>The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.</p>
-<h3>Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels</h3>
-<p>The LEXI, NMAX, Aerox, XMAX, and TMAX are among the high-end scooters in the Yamaha MAXI Family portfolio. These scooters are renowned for their fashionable designs, strong engines, and comfort. In contrast to regular scooters, MAXI scooters have a larger frame, a smoother ride, and features that make them perfect for long-distance and daily commuting. Because it strikes the ideal combination between comfort, power, and efficiency, the Yamaha NMAX 155cc is particularly well-liked in the Philippines.</p>
-<h3>The Vision Behind Yamaha Power Ups: Why It Matters</h3>
-<p>Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.</p>
+<h2>
+    Welcome to Yamaha Maxi Power-Ups
+   </h2>
+<h3>
+    Exploring the Legacy of Yamaha
+   </h3>
+<p>
+    The Japanese manufacturer Yamaha Motor Company is well-known throughout the world for creating motorbikes, boats, and other motorized vehicles. Since its founding in 1955, Yamaha has established a solid reputation for performance, innovation, and dependability, making it one of the most reputable brands in the world's auto industry, including the Philippines.
+   </p>
+<h3>
+    Unveiling the Yamaha MAXI Family: A Revolution on Two Wheels
+   </h3>
+<p>
+    The LEXI, NMAX, Aerox, XMAX, and TMAX are among the high-end scooters in the Yamaha MAXI Family portfolio. These scooters are renowned for their fashionable designs, strong engines, and comfort. In contrast to regular scooters, MAXI scooters have a larger frame, a smoother ride, and features that make them perfect for long-distance and daily commuting. Because it strikes the ideal combination between comfort, power, and efficiency, the Yamaha NMAX 155cc is particularly well-liked in the Philippines.
+   </p>
+<h3>
+    The Vision Behind Yamaha Power Ups: Why It Matters
+   </h3>
+<p>
+    Yamaha Power Ups seeks to deliver a customized riding experience that showcases personal creativity. Through scooter customization, Yamaha enables riders to express their individuality, boosting both visual appeal and ownership pride. These improvements facilitate striking visual representations for events or branding, highlighting Yamaha's commitment to innovation and the relationship between riders and their motorcycles.
+   </p>
 </section>
 <section class="gallery fade-in" id="motors">
 <div class="bike fade-in" data-theme="rengoku" onclick="showSpecs('specModal')">
 <img alt="TMAX x Rengoku" loading="lazy" src="tmax rengoku.png"/>
-<h4>TMAX x Rengoku</h4>
+<h4>
+     TMAX x Rengoku
+    </h4>
 </div>
 <div class="bike fade-in" data-theme="onepiece" onclick="showSpecs('xmax-popup')">
 <img alt="XMAX x One Piece" loading="lazy" src="xmax onepiece.png"/>
-<h4>XMAX x One Piece</h4>
+<h4>
+     XMAX x One Piece
+    </h4>
 </div>
 <div class="bike fade-in" data-theme="sukuna" onclick="showSpecs('nmax-popup')">
 <img alt="NMAX x Sukuna" loading="lazy" src="nmax sukuna.png"/>
-<h4>NMAX x Sukuna</h4>
+<h4>
+     NMAX x Sukuna
+    </h4>
 </div>
 <div class="bike fade-in" data-theme="kurama" onclick="showSpecs('aerox-popup')">
 <img alt="AEROX x Kurama" loading="lazy" src="aerox kurama.png"/>
-<h4>AEROX x Kurama</h4>
+<h4>
+     AEROX x Kurama
+    </h4>
 </div>
 <div class="bike fade-in" data-theme="ssj" onclick="showSpecs('lexi-popup')">
 <img alt="LEXI x Super Saiyan" loading="lazy" src="lexi ssj.png"/>
-<h4>LEXI x Super Saiyan</h4>
+<h4>
+     LEXI x Super Saiyan
+    </h4>
 </div>
 </section>
 <section class="contact fade-in" id="contact">
-<h2>Contact Us</h2>
+<h2>
+    Contact Us
+   </h2>
 <form aria-label="Contact Form">
-<label for="name">Your Name</label>
+<label for="name">
+     Your Name
+    </label>
 <input id="name" name="name" placeholder="Your Name" required="" type="text"/>
-<label for="email">Your Email</label>
+<label for="email">
+     Your Email
+    </label>
 <input id="email" name="email" placeholder="Your Email" required="" type="email"/>
-<label for="message">Your Message</label>
+<label for="message">
+     Your Message
+    </label>
 <textarea id="message" name="message" placeholder="Your Message" required="" rows="4"></textarea>
-<button type="submit">Send</button>
+<button type="submit">
+     Send
+    </button>
 </form>
 </section>
-<footer class="fade-in" style="color:white;">© <span id="year"></span> Yamaha Motor Co., Ltd.</footer>
+<footer class="fade-in" style="color:white;">
+   ©
+   <span id="year">
+</span>
+   Yamaha Motor Co., Ltd.
+  </footer>
 <script>
-function showSpecs(modalId) {
+   function showSpecs(modalId) {
     document.getElementById('overlay').style.display = 'block';
     document.body.style.overflow = 'hidden';
     document.querySelectorAll('.spec-modal').forEach(modal => {
@@ -1025,27 +1739,60 @@ Selected Plan: ${plan}`);
         });
     }
 });
-</script>
+  </script>
 <div class="buy-popup" id="buyPopup">
-<h3>Complete Your Purchase</h3>
-<p>Please enter your details below:</p>
+<h3>
+    Complete Your Purchase
+   </h3>
+<p>
+    Please enter your details below:
+   </p>
 <form id="buyForm">
-<label for="buyerName">Name:</label><br/>
-<input id="buyerName" name="buyerName" required="" type="text"/><br/><br/>
-<label for="buyerAddress">Address:</label><br/>
-<input id="buyerAddress" name="buyerAddress" required="" type="text"/><br/><br/>
-<label for="buyerPhone">Phone Number:</label><br/>
-<input id="buyerPhone" name="buyerPhone" required="" type="tel"/><br/><br/>
-<label for="buyerEmail">Email:</label><br/>
-<input id="buyerEmail" name="buyerEmail" required="" type="email"/><br/><br/>
-<label for="buyerPlan">Selected Plan:</label><br/>
-<input id="buyerPlan" name="buyerPlan" readonly="" type="text"/><br/><br/>
-<button type="submit">Submit</button>
-<button onclick="document.getElementById('buyPopup').classList.remove('show')" type="button">Cancel</button>
+<label for="buyerName">
+     Name:
+    </label>
+<br/>
+<input id="buyerName" name="buyerName" required="" type="text"/>
+<br/>
+<br/>
+<label for="buyerAddress">
+     Address:
+    </label>
+<br/>
+<input id="buyerAddress" name="buyerAddress" required="" type="text"/>
+<br/>
+<br/>
+<label for="buyerPhone">
+     Phone Number:
+    </label>
+<br/>
+<input id="buyerPhone" name="buyerPhone" required="" type="tel"/>
+<br/>
+<br/>
+<label for="buyerEmail">
+     Email:
+    </label>
+<br/>
+<input id="buyerEmail" name="buyerEmail" required="" type="email"/>
+<br/>
+<br/>
+<label for="buyerPlan">
+     Selected Plan:
+    </label>
+<br/>
+<input id="buyerPlan" name="buyerPlan" readonly="" type="text"/>
+<br/>
+<br/>
+<button type="submit">
+     Submit
+    </button>
+<button onclick="document.getElementById('buyPopup').classList.remove('show')" type="button">
+     Cancel
+    </button>
 </form>
 </div>
 <script>
-let lastScrollTop = 0;
+   let lastScrollTop = 0;
 const navbar = document.querySelector('nav');
 
 window.addEventListener('scroll', function () {
@@ -1061,9 +1808,9 @@ window.addEventListener('scroll', function () {
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // for mobile or negative scroll
 });
-</script>
+  </script>
 <script>
-document.querySelectorAll('.plan-select').forEach(select => {
+   document.querySelectorAll('.plan-select').forEach(select => {
   document.querySelectorAll('.promo-code').forEach(input => {
   input.addEventListener('input', function () {
     const select = this.closest('.spec-text').querySelector('.plan-select');
@@ -1072,9 +1819,9 @@ document.querySelectorAll('.plan-select').forEach(select => {
     }
   });
 });
-</script>
+  </script>
 <script>
-document.querySelectorAll('.plan-select').forEach(select => {
+   document.querySelectorAll('.plan-select').forEach(select => {
   select.addEventListener('change', function () {
     const selectedText = this.options[this.selectedIndex].text;
     let display = this.parentElement.querySelector('.price-preview');
@@ -1099,9 +1846,9 @@ document.querySelectorAll('.plan-select').forEach(select => {
     display.textContent = "Selected: " + selectedText + " | " + breakdown;
   });
 });
-</script>
+  </script>
 <script>
-document.querySelectorAll('.plan-select').forEach(select => {
+   document.querySelectorAll('.plan-select').forEach(select => {
   select.addEventListener('change', function () {
     const modal = this.closest('.spec-modal');
     const basePrice = parseFloat(modal.getAttribute('data-price'));
@@ -1141,15 +1888,15 @@ document.querySelectorAll('.promo-code').forEach(input => {
     }
   });
 });
-</script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<audio id="hoverSound" preload="auto">
-  <source src="hover-sound.mp3" type="audio/mpeg">
-</audio>
-
-
+  </script>
 <script>
-document.querySelectorAll('.bike').forEach(bike => {
+   document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+<audio id="hoverSound" preload="auto">
+<source src="hover-sound.mp3" type="audio/mpeg"/>
+</audio>
+<script>
+   document.querySelectorAll('.bike').forEach(bike => {
   bike.addEventListener('mouseenter', () => {
     const sound = document.getElementById('hoverSound');
     if (sound) {
@@ -1158,7 +1905,36 @@ document.querySelectorAll('.bike').forEach(bike => {
     }
   });
 });
-</script>
+  </script>
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+  const selects = document.querySelectorAll('.plan-select');
 
+  selects.forEach(select => {
+    function applyThemeColor() {
+      const selectedValue = select.value.toLowerCase();
+      const themeMap = {
+        rengoku: '#ff6f00',
+        onepiece: '#0074D9',
+        sukuna: '#990000',
+        kurama: '#f39c12',
+        ssj: '#f1c40f'
+      };
+
+      for (let key in themeMap) {
+        if (select.classList.contains('theme-' + key)) {
+          select.style.color = themeMap[key];
+        }
+      }
+    }
+
+    // Initial style on load
+    applyThemeColor();
+
+    // Update on change
+    select.addEventListener('change', applyThemeColor);
+  });
+});
+  </script>
 </body>
 </html>

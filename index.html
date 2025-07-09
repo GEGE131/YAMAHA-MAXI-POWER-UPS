@@ -685,51 +685,26 @@ body {
 }
 
 /* Themed Hover Glows */
-.bike[data-theme="rengoku"]:hover {
-    box-shadow: 0 0 25px #ff6f00, 0 0 50px rgba(255, 87, 34, 0.5);
-}
-.bike[data-theme="sukuna"]:hover {
-    box-shadow: 0 0 25px #990000, 0 0 50px rgba(153, 0, 0, 0.6);
-}
-.bike[data-theme="onepiece"]:hover {
-    box-shadow: 0 0 25px #0074D9, 0 0 50px rgba(0, 116, 217, 0.5);
-}
-.bike[data-theme="kurama"]:hover {
-    box-shadow: 0 0 25px #f39c12, 0 0 50px rgba(243, 156, 18, 0.5);
-}
-.bike[data-theme="ssj"]:hover {
-    box-shadow: 0 0 25px #f1c40f, 0 0 50px rgba(241, 196, 15, 0.6), 0 0 70px #3498db;
-}
+
+
+
+
+
 
 /* Animated aura effects */
 50% { box-shadow: 0 0 30px var(--glow-color); }
   100% { box-shadow: 0 0 20px transparent; }
 }
 
-.bike[data-theme="rengoku"]:hover {
-  --glow-color: #ff6f00;
-  animation: auraFlicker 1.5s infinite;
-}
 
-.bike[data-theme="sukuna"]:hover {
-  --glow-color: #990000;
-  animation: auraFlicker 1.5s infinite;
-}
 
-.bike[data-theme="onepiece"]:hover {
-  --glow-color: #0074D9;
-  animation: auraFlicker 1.5s infinite;
-}
 
-.bike[data-theme="kurama"]:hover {
-  --glow-color: #f39c12;
-  animation: auraFlicker 1.5s infinite;
-}
 
-.bike[data-theme="ssj"]:hover {
-  --glow-color: #f1c40f;
-  animation: auraFlicker 1.5s infinite;
-}
+
+
+
+
+
 
 .plan-select {
   background: #000;
@@ -849,6 +824,56 @@ body {
 .plan-select.theme-ssj:focus {
   box-shadow: 0 0 20px #f1c40f, 0 0 35px rgba(241, 196, 15, 0.5), 0 0 50px #3498db;
 }
+
+@keyframes auraFlicker {
+  0% { box-shadow: 0 0 20px transparent; }
+  50% { box-shadow: 0 0 30px var(--glow-color); }
+  100% { box-shadow: 0 0 20px transparent; }
+}
+
+
+
+
+
+
+
+@keyframes auraFlicker {
+  0% { box-shadow: 0 0 20px transparent; }
+  50% { box-shadow: 0 0 30px var(--glow-color); }
+  100% { box-shadow: 0 0 20px transparent; }
+}
+
+.bike[data-theme="rengoku"]:hover {
+  --glow-color: #ff6f00;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff6f00, 0 0 50px rgba(255, 87, 34, 0.5);
+  animation: auraFlicker 1.5s infinite ease-in-out;
+}
+.bike[data-theme="sukuna"]:hover {
+  --glow-color: #990000;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #990000, 0 0 50px rgba(153, 0, 0, 0.6);
+  animation: auraFlicker 1.5s infinite ease-in-out;
+}
+.bike[data-theme="onepiece"]:hover {
+  --glow-color: #0074D9;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #0074D9, 0 0 50px rgba(0, 116, 217, 0.5);
+  animation: auraFlicker 1.5s infinite ease-in-out;
+}
+.bike[data-theme="kurama"]:hover {
+  --glow-color: #f39c12;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #f39c12, 0 0 50px rgba(243, 156, 18, 0.5);
+  animation: auraFlicker 1.5s infinite ease-in-out;
+}
+.bike[data-theme="ssj"]:hover {
+  --glow-color: #f1c40f;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #f1c40f, 0 0 50px rgba(241, 196, 15, 0.6), 0 0 70px #3498db;
+  animation: auraFlicker 1.5s infinite ease-in-out;
+}
+
 </style>
 <meta content="Yamaha scooters, TMAX Rengoku, NMAX Sukuna, Aerox Kurama, XMAX One Piece, Lexi Super Saiyan, anime-themed motorbikes, custom Yamaha Philippines, Yamaha MAXI power-ups" name="keywords"/>
 <!-- Structured Data for SEO -->

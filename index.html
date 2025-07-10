@@ -605,27 +605,27 @@ body {
 
 .theme-rengoku {
   background: linear-gradient(to right, #ff4500, #ff7518);
-  border-color: #ff7518;
+  border-color: white; text-shadow: 0 0 2px #000;
 }
 
 .theme-onepiece {
   background: linear-gradient(to right, #003366, #0074D9);
-  border-color: #0074D9;
+  border-color: white; text-shadow: 0 0 2px #000;
 }
 
 .theme-sukuna {
   background: linear-gradient(to right, #330000, #660000);
-  border-color: #990000;
+  border-color: white; text-shadow: 0 0 2px #000;
 }
 
 .theme-kurama {
   background: linear-gradient(to right, #ff8c00, #f39c12);
-  border-color: #e67e22;
+  border-color: #111; text-shadow: 0 0 2px #fff;
 }
 
 .theme-ssj {
   background: linear-gradient(to right, #f1c40f, #3498db);
-  border-color: #f1c40f;
+  border-color: #111; text-shadow: 0 0 2px #fff;
 }
 
 
@@ -712,10 +712,93 @@ body {
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
   border: 2px solid var(--accent-color);
-  border-radius: 8px;
-  padding: 0.5rem 0.75rem;
-  transition: 0.3s ease;
-  box-shadow: 0 0 10px var(--accent-color), 0 0 20px rgba(255, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  appearance: none;
+  box-shadow: 0 0 12px var(--accent-color), 0 0 25px rgba(255, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 20 20' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7L10 12L15 7H5Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+
+.plan-select:hover,
+.plan-select:focus {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px var(--accent-color), 0 0 35px rgba(255, 0, 0, 0.5);
+}
+
+.plan-select option {
+  background-color: #111;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+}
+
+/* Themed backgrounds with better contrast font color */
+.theme-rengoku {
+  background: linear-gradient(to right, #ff4500, #ff7518);
+  border-color: white; text-shadow: 0 0 2px #000;
+  color: #fff;
+}
+.theme-onepiece {
+  background: linear-gradient(to right, #003366, #0074D9);
+  border-color: white; text-shadow: 0 0 2px #000;
+  color: #fff;
+}
+.theme-sukuna {
+  background: linear-gradient(to right, #330000, #660000);
+  border-color: white; text-shadow: 0 0 2px #000;
+  color: #fff;
+}
+.theme-kurama {
+  background: linear-gradient(to right, #ff8c00, #f39c12);
+  border-color: #111; text-shadow: 0 0 2px #fff;
+  color: #111;
+}
+.theme-ssj {
+  background: linear-gradient(to right, #f1c40f, #3498db);
+  border-color: #111; text-shadow: 0 0 2px #fff;
+  color: #111;
+}
+
+.plan-select:hover,
+.plan-select:focus {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px var(--accent-color), 0 0 35px rgba(255, 0, 0, 0.5);
+}
+
+.plan-select option {
+  background-color: #111;
+  color: white;
+  font-weight: bold;
+}
+
+.theme-rengoku {
+  background: linear-gradient(to right, #ff4500, #ff7518);
+  border-color: white; text-shadow: 0 0 2px #000;
+  color: #ff6f00;
+}
+.theme-onepiece {
+  background: linear-gradient(to right, #003366, #0074D9);
+  border-color: white; text-shadow: 0 0 2px #000;
+  color: #0074D9;
+}
+.theme-sukuna {
+  background: linear-gradient(to right, #330000, #660000);
+  border-color: white; text-shadow: 0 0 2px #000;
+  color: #990000;
+}
+.theme-kurama {
+  background: linear-gradient(to right, #ff8c00, #f39c12);
+  border-color: #111; text-shadow: 0 0 2px #fff;
+  color: #f39c12;
+}
+.theme-ssj {
+  background: linear-gradient(to right, #f1c40f, #3498db);
+  border-color: #111; text-shadow: 0 0 2px #fff;
+  color: #f1c40f;
 }
 
 .plan-select:hover {
@@ -825,11 +908,6 @@ body {
   box-shadow: 0 0 20px #f1c40f, 0 0 35px rgba(241, 196, 15, 0.5), 0 0 50px #3498db;
 }
 
-@keyframes auraFlicker {
-  0% { box-shadow: 0 0 20px transparent; }
-  50% { box-shadow: 0 0 30px var(--glow-color); }
-  100% { box-shadow: 0 0 20px transparent; }
-}
 
 
 
@@ -837,11 +915,8 @@ body {
 
 
 
-@keyframes auraFlicker {
-  0% { box-shadow: 0 0 20px transparent; }
-  50% { box-shadow: 0 0 30px var(--glow-color); }
-  100% { box-shadow: 0 0 20px transparent; }
-}
+
+
 
 .bike[data-theme="rengoku"]:hover {
   --glow-color: #ff6f00;
@@ -1403,7 +1478,6 @@ body {
         Black Ninja Comfort Seat
        </li>
 </ul>
-</ul>
 <div class="buy-now">
 <fieldset style="border: 1px solid var(--accent-color); padding: 1rem; border-radius: 8px;">
 <legend style="color: white;">
@@ -1723,18 +1797,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
     document.getElementById('overlay').addEventListener('click', closeModal);
-});
-
-document.querySelectorAll('.buy-now button').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const popup = document.getElementById('buyPopup');
-        popup.innerHTML = `
-            <h3>Thank you for choosing Yamaha!</h3>
-            <p>Our team will contact you shortly to complete your purchase.</p>
-            <button onclick="document.getElementById('buyPopup').classList.remove('show')">Close</button>
-        `;
-        popup.classList.add('show');
-    });
 });
 
 document.querySelectorAll('.buy-now button').forEach((btn) => {

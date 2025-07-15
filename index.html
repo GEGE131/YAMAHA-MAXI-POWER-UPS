@@ -1281,7 +1281,7 @@ body {
 </p>
 <ul>
 <li>
-       Engine Displacement: 125 cc
+       Engine Displacement: 155 cc
       </li>
 <li>
        Engine Type: 4-stroke, Liquid-Cooled, SOHC, 4-Valve with VVA
@@ -1539,7 +1539,7 @@ body {
 </p>
 <ul>
 <li>
-       Displacement: 155 cc
+       Displacement: 125 cc
       </li>
 <li>
        Engine Type: Liquid-cooled, 4-stroke, SOHC, 4-valve with VVA
@@ -2048,5 +2048,28 @@ document.querySelectorAll('.promo-code').forEach(input => {
   });
 });
   </script>
+
+<!DOCTYPE html>
+<!-- Only adding the final required additions at the bottom of body -->
+<!-- This is just a patch. It should be inserted into the original index.html -->
+<audio id="startupSound" preload="auto">
+  <source src="motor-rev.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+  window.addEventListener("load", function () {
+    const audio = document.getElementById("startupSound");
+
+    setTimeout(() => {
+      if (audio && audio.paused) {
+        audio.volume = 1.0;
+        audio.play().catch((e) => {
+          console.warn("Startup sound could not play automatically. Reason:", e);
+        });
+      }
+    }, 1200); // Delay to sync with splash fade animation
+  });
+</script>
+
 </body>
 </html>
